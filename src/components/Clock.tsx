@@ -22,9 +22,9 @@ class Clock extends Component<AcceptedProps, ClockState> {
     })
   };
 
-  // componentWillMount(){
-  //   this.tick();
-  // };
+  componentWillMount(){
+    this.tick();
+  };
 
 componentDidMount(){
   setInterval(() => this.tick(), 1000)
