@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import EmployeeCreate from "./EmployeeCreate";
 
 interface EmployeeIndexProps {
-  
+  sessionToken: string | null
 }
 
 interface EmployeeIndexState {
@@ -20,7 +20,7 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
   render() { 
     return (  
       <div>
-        <EmployeeCreate />
+        <EmployeeCreate sessionToken={this.props.sessionToken}/>
       </div>
     );
   }

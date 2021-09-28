@@ -40,8 +40,7 @@ fetch("http://localhost:3000/user/register", {
     })
     
         .then((res) => res.json())
-        .then((data) => {this.props.updateToken(data.sessionToken)
-        })
+        .then((data) => {this.props.updateToken(data.sessionToken)})
         .catch((err) => (`error: ${err}`));
 }
 

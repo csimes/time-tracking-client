@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {FormGroup, TextField, FormLabel, Button} from "@mui/material"
 
 interface EmployeeCreateProps {
-  
+  sessionToken: string | null
 } 
 
 
@@ -51,11 +51,13 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
       }),
       headers: new Headers({
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${this.props.sessionToken}`
       }),
     })
     
     .then((res) => res.json())
-    .then((createData) => console.log(createData))
+    // .then((data) => console.log(data.UserId))
+    // .then((data) => {this.setState({UserId: data.UserId})})
     .catch((err) => (`error: ${err}`));
   }
 
@@ -64,6 +66,14 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
       <div>
         <h1>Create Employee Record</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
+          <FormGroup>
+          <FormLabel htmlFor="firstName">User Id</FormLabel>            
+          <TextField
+            label={this.state.UserId}
+            value={this.state.UserId}
+            required 
+            />
+        </FormGroup>
         <FormGroup>
           <FormLabel htmlFor="firstName">First Name</FormLabel>            
           <TextField
@@ -101,7 +111,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             onChange={(e) => this.setState({department: e.target.value})}
             name="Department"
             value={this.state.department}
-            required 
           />
         </FormGroup>
         <FormGroup>
@@ -116,11 +125,21 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           <FormGroup>
           <FormLabel>Hire Date</FormLabel>
             <TextField
-            label="Hire Date"
+            // label="Hire Date"
             onChange={(e) => this.setState({hireDate: e.target.value})}
             name="hireDate"
             value={this.state.hireDate}
-            required 
+            type="date"
+          />
+        </FormGroup>
+        <FormGroup>
+            <FormLabel>Company Id</FormLabel>
+            <TextField
+            label="Company Id"
+            onChange={(e) => this.setState({CompanyId: e.target.value})}
+            name="hireDate"
+            value={this.state.CompanyId}
+            required
           />
         </FormGroup>
           <Button type="submit">Add Employee</Button>

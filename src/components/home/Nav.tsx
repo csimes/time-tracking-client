@@ -19,7 +19,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
 
   render() { 
     return (  
-      <div></div>
+      <div>This is nav bar</div>
     );
   }
 }

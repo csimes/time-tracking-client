@@ -3,6 +3,7 @@ import './App.css';
 import Auth from './components/auth/Auth';
 import Clock from './components/Clock';
 import EmployeeIndex from './components/employee/EmployeeIndex';
+import Nav from "./components/home/Nav"
 
 let testProp = "This is a test. This is only a test";
 
@@ -10,7 +11,7 @@ type AppState = {
   sessionToken: string | null
 }
 
-class App extends Component<{},AppState> {  
+class App extends Component<{}, AppState> {  
   constructor(props: any){
     super(props)
       this.state = { 
@@ -39,12 +40,13 @@ class App extends Component<{},AppState> {
   }
 
 protectedViews(){
-  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex /> : <Auth updateToken={this.updateToken} /> )
+  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex sessionToken={this.state.sessionToken}/> : <Auth updateToken={this.updateToken} /> )
 }
 
   render() {
     return (
     <div className="App">
+      <Nav />
       <Clock testProp={testProp} />
       {this.protectedViews()}
       <Auth updateToken={this.updateToken} />
