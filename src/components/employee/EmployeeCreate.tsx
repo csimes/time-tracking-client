@@ -7,7 +7,6 @@ interface EmployeeCreateProps {
 
 
 interface EmployeeCreateState {
-  UserId: string,
   firstName: string,
   lastName: string,
   username: string,
@@ -21,7 +20,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
   constructor (props: EmployeeCreateProps) {
     super(props)
       this.state = { 
-        UserId: "",
         firstName: "",
         lastName: "",
         username: "",
@@ -35,12 +33,11 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { UserId, firstName, lastName, username, department, title, hireDate, CompanyId} = this.state
+    const { firstName, lastName, username, department, title, hireDate, CompanyId} = this.state
     
     fetch("http://localhost:3000/employee/create", {
       method: "POST",
       body: JSON.stringify({
-        UserId: UserId,
         firstName: firstName,
         lastName: lastName,
         username: username,
@@ -66,18 +63,18 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
       <div>
         <h1>Create Employee Record</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <FormGroup>
+          {/* <FormGroup>
           <FormLabel htmlFor="firstName">User Id</FormLabel>            
           <TextField
             label={this.state.UserId}
             value={this.state.UserId}
             required 
             />
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup>
           <FormLabel htmlFor="firstName">First Name</FormLabel>            
           <TextField
-            label="Last Name"
+            label="First Name"
             onChange={(e) => this.setState({firstName: e.target.value})}
             name="First Name"
             value={this.state.firstName}
