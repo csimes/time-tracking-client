@@ -2,6 +2,7 @@ import React , { Component } from 'react';
 import './App.css';
 import Auth from './components/auth/Auth';
 import Clock from './components/Clock';
+import EmployeeIndex from './components/employee/EmployeeIndex';
 
 let testProp = "This is a test. This is only a test";
 
@@ -38,7 +39,7 @@ class App extends Component<{},AppState> {
   }
 
 protectedViews(){
-  // return (this.state.sessionToken === localStorage.getItem("token") ? "Go to dashboard" : <Auth updateToken={this.updateToken} /> )
+  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex /> : <Auth updateToken={this.updateToken} /> )
 }
 
   render() {
@@ -46,7 +47,8 @@ protectedViews(){
     <div className="App">
       <Clock testProp={testProp} />
       {this.protectedViews()}
-      <Auth updateToken={this.updateToken} />
+      {/* <Auth updateToken={this.updateToken} />
+      <EmployeeIndex /> */}
     </div>
   );
   }

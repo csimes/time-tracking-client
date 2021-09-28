@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import {FormGroup, TextField, FormLabel, Input, Button} from "@mui/material"
+import {FormGroup, TextField, FormLabel, Button} from "@mui/material"
+
+type RegisterProps = {
+  updateToken: (newToken: string) => void
+}
 
 type RegisterState = {
   email: string,
   password: string,
   isAdmin: boolean,
-  sessionToken: string,
-  errorText: string,
-}
-
-type RegisterProps = {
-  updateToken: (newToken: string) => void
+  sessionToken: string
 }
 
 class Register extends Component<RegisterProps, RegisterState> {
@@ -20,8 +19,7 @@ class Register extends Component<RegisterProps, RegisterState> {
         email: "",
         password: "",
         isAdmin: false,
-        sessionToken: "",
-        errorText: ""
+        sessionToken: ""
       }
   }
 
@@ -53,9 +51,9 @@ fetch("http://localhost:3000/user/register", {
             <h1>Register</h1>
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <FormGroup>
-                    {/* <FormLabel htmlFor="email">Email</FormLabel> */}
+                    <FormLabel htmlFor="email">Email</FormLabel>
                     <TextField
-                        label="Email"
+                        label="email"
                         onChange={(e) => this.setState({email: e.target.value})}
                         name="email"
                         placeholder="Email"
@@ -65,9 +63,9 @@ fetch("http://localhost:3000/user/register", {
                     />
                 </FormGroup>
                 <FormGroup>
-                    {/* <FormLabel htmlFor="password">Password</FormLabel> */}
+                    <FormLabel htmlFor="password">Password</FormLabel>
                     <TextField
-                        label="Password"
+                        label="password"
                         onChange={(e) => this.setState({password: e.target.value})}
                         name="password"
                         placeholder="Password"
