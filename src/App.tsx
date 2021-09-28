@@ -47,8 +47,8 @@ protectedViews(){
     <div className="App">
       <Clock testProp={testProp} />
       {this.protectedViews()}
-      {/* <Auth updateToken={this.updateToken} />
-      <EmployeeIndex /> */}
+      <Auth updateToken={this.updateToken} />
+      {/* <EmployeeIndex /> */}
     </div>
   );
   }

@@ -70,7 +70,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Last Name"
             onChange={(e) => this.setState({firstName: e.target.value})}
             name="First Name"
-            placeholder="First Name"
             value={this.state.firstName}
             required 
             />
@@ -81,7 +80,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Last Name"
             onChange={(e) => this.setState({lastName: e.target.value})}
             name="Last Name"
-            placeholder="Last Name"
             value={this.state.lastName}
             required 
           />
@@ -92,7 +90,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Username"
             onChange={(e) => this.setState({username: e.target.value})}
             name="Username"
-            placeholder="Username"
             value={this.state.username}
             required 
           />
@@ -103,7 +100,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Department"
             onChange={(e) => this.setState({department: e.target.value})}
             name="Department"
-            placeholder="Department"
             value={this.state.department}
             required 
           />
@@ -114,7 +110,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Title"
             onChange={(e) => this.setState({title: e.target.value})}
             name="Title"
-            placeholder="Title"
             value={this.state.title}
           />
           </FormGroup>
@@ -124,7 +119,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             label="Hire Date"
             onChange={(e) => this.setState({hireDate: e.target.value})}
             name="hireDate"
-            placeholder="Hire Date"
             value={this.state.hireDate}
             required 
           />

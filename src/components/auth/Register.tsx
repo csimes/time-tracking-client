@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {FormGroup, TextField, FormLabel, Button} from "@mui/material"
+import { FormGroup, TextField, FormLabel, Button, Checkbox } from "@mui/material"
 
 type RegisterProps = {
   updateToken: (newToken: string) => void
@@ -44,6 +44,10 @@ fetch("http://localhost:3000/user/register", {
         })
         .catch((err) => (`error: ${err}`));
 }
+
+handleChange = (e: any) => {
+  this.setState({isAdmin: e.target.checked})
+}
   
   render() { 
     return ( 
@@ -72,6 +76,12 @@ fetch("http://localhost:3000/user/register", {
                         value={this.state.password}
                         required
                     />
+                </FormGroup>
+                <FormGroup>
+                  <FormLabel htmlFor="Admin">
+                  Check if user is an Admin:
+                  </FormLabel>
+                  <Checkbox onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>
                 <Button type="submit">Register</Button>
             </form>
