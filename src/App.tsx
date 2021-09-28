@@ -6,13 +6,16 @@ import EmployeeIndex from './components/employee/EmployeeIndex';
 import Nav from "./components/home/Nav"
 
 let testProp = "This is a test. This is only a test";
+type AppProps = {
+  // clearToken: () => void
+}
 
 type AppState = {
   sessionToken: string | null
 }
 
-class App extends Component<{}, AppState> {  
-  constructor(props: any){
+class App extends Component<AppProps, AppState> {  
+  constructor(props: AppProps){
     super(props)
       this.state = { 
         sessionToken : ""
@@ -46,10 +49,10 @@ protectedViews(){
   render() {
     return (
     <div className="App">
-      <Nav />
+      <Nav clearToken={this.clearToken}/>
       <Clock testProp={testProp} />
       {this.protectedViews()}
-      <Auth updateToken={this.updateToken} />
+      {/* <Auth updateToken={this.updateToken} /> */}
       {/* <EmployeeIndex /> */}
     </div>
   );
