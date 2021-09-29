@@ -13,7 +13,8 @@ interface EmployeeCreateState {
   department: string | null,
   title: string | null,
   hireDate: string,
-  CompanyId: string | null
+  CompanyId: string | null,
+  employeeId: Number | null
 } 
 
 class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState> {
@@ -26,9 +27,9 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         department: "",
         title: "",
         hireDate: "",
-        CompanyId: ""
+        CompanyId: "",
+        employeeId: null
       }
-
   }
 
   handleSubmit = async (e: any) => {
@@ -53,8 +54,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
     })
     
     .then((res) => res.json())
-    // .then((data) => console.log(data.UserId))
-    // .then((data) => {this.setState({UserId: data.UserId})})
     .catch((err) => (`error: ${err}`));
   }
 
@@ -63,14 +62,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
       <div>
         <h1>Create Employee Record</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          {/* <FormGroup>
-          <FormLabel htmlFor="firstName">User Id</FormLabel>            
-          <TextField
-            label={this.state.UserId}
-            value={this.state.UserId}
-            required 
-            />
-        </FormGroup> */}
         <FormGroup>
           <FormLabel htmlFor="firstName">First Name</FormLabel>            
           <TextField
@@ -141,6 +132,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         </FormGroup>
           <Button type="submit">Add Employee</Button>
         </form>
+        {/* <div>{this.state.employeeId}</div> */}
       </div>
     );
   }

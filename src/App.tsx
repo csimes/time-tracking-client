@@ -53,7 +53,7 @@ protectedViews(){
       <Clock testProp={testProp} />
       {this.protectedViews()}
       {/* <Auth updateToken={this.updateToken} /> */}
-      {/* <EmployeeIndex /> */}
+      {/* <EmployeeIndex sessionToken={this.state.sessionToken}/> */}
     </div>
   );
   }
