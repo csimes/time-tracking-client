@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FormGroup, TextField, FormLabel, Button, Checkbox } from "@mui/material"
+import APIURL from "../../helpers/environment";
 
 type RegisterProps = {
   updateToken: (newToken: string) => void
@@ -27,7 +28,7 @@ class Register extends Component<RegisterProps, RegisterState> {
     e.preventDefault();
     const { email, password, isAdmin } = this.state
 
-fetch("http://localhost:3000/user/register", {
+fetch(`http://${APIURL}/user/register`, {
       method: "POST",
       body: JSON.stringify({
         email: email,

@@ -1,5 +1,6 @@
 import React,  { Component } from "react";
-import {FormGroup, TextField, FormLabel, Input, Button} from "@mui/material"
+import {FormGroup, TextField, FormLabel, Input, Button} from "@mui/material";
+import APIURL from "../../helpers/environment";
 
 type LoginProps = {
   updateToken: (newToken: string) => void
@@ -22,7 +23,7 @@ class Login extends Component<LoginProps, LoginState> {
   handleSubmit = (e: any) => {
     const { email, password } = this.state
     e.preventDefault();
-fetch("http://localhost:3000/user/login", {
+fetch(`http://${APIURL}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,

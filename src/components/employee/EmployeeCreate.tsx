@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {FormGroup, TextField, FormLabel, Button} from "@mui/material"
+import {FormGroup, TextField, FormLabel, Button} from "@mui/material";
+import APIURL from "../../helpers/environment";
 
 interface EmployeeCreateProps {
   sessionToken: string | null
@@ -36,7 +37,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
     e.preventDefault();
     const { firstName, lastName, username, department, title, hireDate, CompanyId} = this.state
     
-    fetch("http://localhost:3000/employee/create", {
+    fetch(`http://${APIURL}/employee/create`, {
       method: "POST",
       body: JSON.stringify({
         firstName: firstName,

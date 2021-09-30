@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-// import { Button } from "@mui/material"
+// import { Button } from "@mui/material";
+import APIURL from "../../helpers/environment";
 
 interface EmployeeProfileProps {
   sessionToken: string | null
@@ -35,7 +36,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
   }
 
   fetchEmployee = async () => {
-    fetch(`http://localhost:3000/employee/`, {
+    fetch(`http://${APIURL}/employee/`, {
       method: "GET",
       headers: new Headers ({
         "Content-Type": "application/json",
