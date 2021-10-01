@@ -35,9 +35,9 @@ fetch(`${APIURL}/user/register`, {
         password: password,
         isAdmin: isAdmin
       }),
-      headers: new Headers({
+      headers: {
         "Content-Type": "application/json",
-      }),
+      },
     })
     
         .then((res) => res.json())
