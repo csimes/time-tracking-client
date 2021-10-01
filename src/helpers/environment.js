@@ -5,7 +5,7 @@ switch (window.location.hostname) {
         APIURL = "http://localhost:3000";
         break;
     case "cs-timetrackerclient.herokuapp.com":
-        APIURL = "https://cs-timetrackerclient.herokuapp.com";
+        APIURL = "https://cs-timetracker.herokuapp.com";
 }
 
 export default APIURL;
