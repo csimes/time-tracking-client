@@ -5,7 +5,10 @@ switch (window.location.hostname) {
         APIURL = "http://localhost:3000";
         break;
     case "cs-timetrackerclient.herokuapp.com":
-        APIURL = "https://cs-timetracker.herokuapp.com";
+        APIURL =
+            "https://radiant-oasis-13136.herokuapp.com/https://cs-timetracker.herokuapp.com";
+        break;
+        default : console.log("Unable to connect")
 }
 
 export default APIURL;
