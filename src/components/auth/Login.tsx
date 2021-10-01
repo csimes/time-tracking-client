@@ -23,7 +23,7 @@ class Login extends Component<LoginProps, LoginState> {
   handleSubmit = (e: any) => {
     const { email, password } = this.state
     e.preventDefault();
-fetch(`http://${APIURL}/user/login`, {
+fetch(`${APIURL}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,

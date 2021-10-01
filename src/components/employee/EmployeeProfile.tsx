@@ -36,7 +36,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
   }
 
   fetchEmployee = async () => {
-    fetch(`http://${APIURL}/employee/`, {
+    fetch(`${APIURL}/employee/`, {
       method: "GET",
       headers: new Headers ({
         "Content-Type": "application/json",

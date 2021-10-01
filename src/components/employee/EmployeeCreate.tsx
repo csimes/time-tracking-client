@@ -37,7 +37,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
     e.preventDefault();
     const { firstName, lastName, username, department, title, hireDate, CompanyId} = this.state
     
-    fetch(`http://${APIURL}/employee/create`, {
+    fetch(`${APIURL}/employee/create`, {
       method: "POST",
       body: JSON.stringify({
         firstName: firstName,
