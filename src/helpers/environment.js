@@ -6,7 +6,7 @@ switch (window.location.hostname) {
         break;
     case "cs-timetrackerclient.herokuapp.com":
         APIURL =
-            "https://radiant-oasis-13136.herokuapp.com/https://cs-timetracker.herokuapp.com";
+            "https://cs-timetrackerapp.herokuapp.com";
         break;
         default : console.log("Unable to connect")
 }
