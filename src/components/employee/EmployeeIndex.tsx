@@ -3,11 +3,11 @@ import EmployeeCreate from "./EmployeeCreate";
 import EmployeeProfile from "./EmployeeProfile";
 
 
-interface EmployeeIndexProps {
+type EmployeeIndexProps = {
   sessionToken: string | null
 }
 
-interface EmployeeIndexState {
+type EmployeeIndexState = {
 }
 
 class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {

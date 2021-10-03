@@ -2,19 +2,18 @@ import React, { Component } from "react";
 import {FormGroup, TextField, FormLabel, Button} from "@mui/material";
 import APIURL from "../../helpers/environment";
 
-interface EmployeeCreateProps {
+type EmployeeCreateProps = {
   sessionToken: string | null
 } 
 
-
-interface EmployeeCreateState {
+type EmployeeCreateState = {
   firstName: string,
   lastName: string,
   username: string,
   department: string | null,
   title: string | null,
   hireDate: string,
-  CompanyId: string | null,
+  companyId: string | null,
   employeeId: Number | null
 } 
 
@@ -28,16 +27,16 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         department: "",
         title: "",
         hireDate: "",
-        CompanyId: "",
+        companyId: "",
         employeeId: null
       }
   }
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { firstName, lastName, username, department, title, hireDate, CompanyId} = this.state
+    const { firstName, lastName, username, department, title, hireDate, companyId} = this.state
     
-    fetch(`${APIURL}/employee/create`, {
+    fetch(`${APIURL}/timesheet/new`, {
       method: "POST",
       body: JSON.stringify({
         firstName: firstName,
@@ -46,7 +45,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         department: department,
         title: title,
         hireDate: hireDate,
-        CompanyId: CompanyId
+        companyId: companyId
       }),
       headers: new Headers({
         "Content-Type": "application/json",
@@ -125,9 +124,9 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             <FormLabel>Company Id</FormLabel>
             <TextField
             label="Company Id"
-            onChange={(e) => this.setState({CompanyId: e.target.value})}
+            onChange={(e) => this.setState({companyId: e.target.value})}
             name="hireDate"
-            value={this.state.CompanyId}
+            value={this.state.companyId}
             required
           />
         </FormGroup>

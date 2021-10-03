@@ -1,13 +1,14 @@
+import { type } from "os";
 import React, { Component } from "react";
 
 // import { Button } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
-interface EmployeeProfileProps {
+type EmployeeProfileProps = {
   sessionToken: string | null
 }
 
-interface EmployeeProfileState {
+type EmployeeProfileState = {
         firstName: string,
         lastName: string,
         username: string,
