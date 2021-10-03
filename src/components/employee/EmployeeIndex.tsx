@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import EmployeeCreate from "./EmployeeCreate";
+import TimesheetCreate from "../timesheets/TimesheetCreate";
+// import EmployeeCreate from "./EmployeeCreate";
 import EmployeeProfile from "./EmployeeProfile";
 
 
@@ -22,6 +23,7 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
     return (  
       <div>
         {/* <EmployeeCreate sessionToken={this.props.sessionToken}/> */}
+        <TimesheetCreate sessionToken={this.props.sessionToken}/>
         <EmployeeProfile sessionToken={this.props.sessionToken}/>
       </div>
       

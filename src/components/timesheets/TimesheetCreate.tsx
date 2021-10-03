@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import { FormGroup, TextField, FormLabel, Button } from "@mui/material";
+import { FormGroup, TextField, FormControl, FormControlLabel, FormLabel, Button, Radio, RadioGroup } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 
-type TimesheetEntryProps = {
+type TimesheetCreateProps = {
 sessionToken: string | null
 }
 
-type TimesheetEntryState = {
+type TimesheetCreateState = {
   hours: Number | 0,
   timeType: string,
   date: string,
 }
 
-class TimesheetEntry extends Component<TimesheetEntryProps, TimesheetEntryState> {
-  constructor(props: TimesheetEntryProps) {
+class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateState> {
+  constructor(props: TimesheetCreateProps) {
     super(props)
     this.state = {
       hours: 0,
-      timeType: "",
+      timeType: "Regular",
       date: ""
       }
   }
@@ -27,7 +27,7 @@ class TimesheetEntry extends Component<TimesheetEntryProps, TimesheetEntryState>
     e.preventDefault();
     const { hours, timeType, date} = this.state
     
-    fetch(`${APIURL}/employee/create`, {
+    fetch(`${APIURL}/timesheet/new`, {
       method: "POST",
       body: JSON.stringify({
         hours: hours,
@@ -48,7 +48,7 @@ class TimesheetEntry extends Component<TimesheetEntryProps, TimesheetEntryState>
   render() { 
     return (
       <div>
-                <h1>Timesheet Entry</h1>
+        <h1>Timesheet Entry</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
         <FormGroup>
           <FormLabel htmlFor="hours">Hours</FormLabel>            
@@ -61,20 +61,27 @@ class TimesheetEntry extends Component<TimesheetEntryProps, TimesheetEntryState>
             required 
             />
         </FormGroup>
-                <FormGroup>
-          <FormLabel htmlFor="timeType">Time Type</FormLabel>            
-          <TextField
-            label="Time Type"
+        <FormGroup>
+        <FormControl component="fieldset">
+          <FormLabel component="legend" htmlFor="timeType">Time Type</FormLabel>            
+          <RadioGroup
+            aria-label="timeType"
+            defaultValue="Regular"
+            name="radio-buttons-group"
             onChange={(e) => this.setState({timeType: e.target.value})}
-            name="Time Type"
-            value={this.state.timeType}
-            required 
-            />
+          >
+            <FormControlLabel value="Regular" control={<Radio />} label="Regular" />
+            <FormControlLabel value="Vacation" control={<Radio />} label="Vacation" />
+            <FormControlLabel value="Personal" control={<Radio />} label="Personal" />
+            <FormControlLabel value="Sick" control={<Radio />} label="Sick" />
+          </RadioGroup>
+          </FormControl>
         </FormGroup>
                 <FormGroup>
           <FormLabel htmlFor="date">Date</FormLabel>            
           <TextField
-            label="Date"
+            type="date"
+            // label="Date"
             onChange={(e) => this.setState({date: e.target.value})}
             name="Date"
             value={this.state.date}
@@ -88,4 +95,4 @@ class TimesheetEntry extends Component<TimesheetEntryProps, TimesheetEntryState>
   }
 }
 
-export default TimesheetEntry;
+export default TimesheetCreate;
