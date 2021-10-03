@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 // import { Button } from "@mui/material";
 import APIURL from "../../helpers/environment";
+import EmployeeCreate from "./EmployeeCreate";
 
 type EmployeeProfileProps = {
   sessionToken: string | null
@@ -56,6 +57,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
       userId: res.UserId,
       employeeId: res.id
     }))
+    .then((res) => console.log(res))
     .catch((err) => (`error: ${err}`));
     
   }
@@ -67,8 +69,12 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
   render() { 
     return (  
       <div>
-          {/* <Button onClick={this.fetchEmployee}>Fetch Employee</Button> */}
-          <div>
+          {this.state.firstName === ""
+          ?
+            <EmployeeCreate sessionToken={this.props.sessionToken} />
+
+          :
+          (<div>
             First Name: {this.state.firstName}<br />
             Last Name: {this.state.lastName}<br />
             Username: {this.state.username}<br />
@@ -78,7 +84,10 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
             Company ID: {this.state.companyId}<br />
             User ID: {this.state.userId}<br />
             Employee ID: {this.state.employeeId}
-          </div>
+          </div> )
+    
+        }
+          
       </div>
       
     );

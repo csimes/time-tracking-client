@@ -83,7 +83,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           />
           </FormGroup>
           <FormGroup>
-          <FormLabel htmlFor="username">UserName</FormLabel>            
+          <FormLabel htmlFor="username">Username</FormLabel>            
           <TextField
             label="Username"
             onChange={(e) => this.setState({username: e.target.value})}

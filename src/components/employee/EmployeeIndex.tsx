@@ -21,7 +21,7 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
   render() { 
     return (  
       <div>
-        <EmployeeCreate sessionToken={this.props.sessionToken}/>
+        {/* <EmployeeCreate sessionToken={this.props.sessionToken}/> */}
         <EmployeeProfile sessionToken={this.props.sessionToken}/>
       </div>
       
