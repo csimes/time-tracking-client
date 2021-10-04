@@ -11,6 +11,9 @@ type TimesheetCreateState = {
   hours: Number | 0,
   timeType: string,
   date: string,
+  employeeId: Number | undefined,
+  projectId: Number | undefined,
+  companyId: Number | undefined,
 }
 
 class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateState> {
@@ -19,13 +22,16 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
     this.state = {
       hours: 0,
       timeType: "Regular",
-      date: ""
+      date: "",
+      employeeId: undefined,
+      projectId: undefined,
+      companyId: undefined,
       }
   }
   
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { hours, timeType, date} = this.state
+    const { hours, timeType, date, employeeId, projectId, companyId } = this.state
     
     fetch(`${APIURL}/timesheet/new`, {
       method: "POST",
@@ -33,6 +39,9 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
         hours: hours,
         timeType: timeType,
         date: date,
+        employeeId: employeeId,
+        projectId: projectId,
+        companyId: companyId,
       }),
       headers: new Headers({
         "Content-Type": "application/json",
@@ -86,6 +95,16 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
             name="Date"
             value={this.state.date}
             required 
+            />
+        </FormGroup>
+                <FormGroup>
+          <FormLabel htmlFor="hours">Hours</FormLabel>            
+          <TextField
+            type="number"
+            label="Hours"
+            onChange={(e) => this.setState({hours: parseInt(e.target.value, 10)})}
+            name="Hours"
+            value={this.state.hours}
             />
         </FormGroup>
           <Button type="submit">Submit Timesheet</Button>

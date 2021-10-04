@@ -43,7 +43,7 @@ class App extends Component<AppProps, AppState> {
   }
 
 protectedViews(){
-  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex sessionToken={this.state.sessionToken}/> : <Auth updateToken={this.updateToken} /> )
+  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex sessionToken={this.state.sessionToken} employeeId={null}/> : <Auth updateToken={this.updateToken} /> )
 }
 
   render() {

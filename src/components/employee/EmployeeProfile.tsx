@@ -10,15 +10,15 @@ type EmployeeProfileProps = {
 }
 
 type EmployeeProfileState = {
-        firstName: string,
+          firstName: string,
         lastName: string,
         username: string,
         department: string,
         title: string,
         hireDate: string,
-        companyId: Number | undefined,
-        employeeId: Number | undefined,
-        userId: Number | undefined
+        companyId: Number | null,
+        employeeId: Number | null,
+        userId: Number | null
 }
 
 class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileState> {
@@ -31,9 +31,9 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
         department: "",
         title: "",
         hireDate: "",
-        companyId: undefined,
-        employeeId: undefined,
-        userId: undefined
+        companyId: null,
+        employeeId: null,
+        userId: null
     }
   }
 
@@ -47,15 +47,15 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
     })
     .then((res) => res.json())
     .then((res) => this.setState({
-      firstName: res.firstName,
-      lastName: res.lastName,
-      username: res.username,
-      department: res.department,
-      title: res.title,
-      hireDate: res.hiredate,
-      companyId: res.CompanyId,
-      userId: res.UserId,
-      employeeId: res.id
+      firstName: res.employeeProfile.firstName,
+      lastName: res.employeeProfile.lastName,
+      username: res.employeeProfile.username,
+      department: res.employeeProfile.department,
+      title: res.employeeProfile.title,
+      hireDate: res.employeeProfile.hiredate,
+      companyId: res.employeeProfile.CompanyId,
+      userId: res.employeeProfile.UserId,
+      employeeId: res.employeeProfile.id
     }))
     .then((res) => console.log(res))
     .catch((err) => (`error: ${err}`));
@@ -64,17 +64,15 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
 
   componentDidMount(){
     this.fetchEmployee()
+
   }
 
   render() { 
     return (  
-      <div>
-          {this.state.firstName === ""
-          ?
-            <EmployeeCreate sessionToken={this.props.sessionToken} />
 
-          :
-          (<div>
+      /* Ternary to show employee create if no employee profile */
+      <div>
+        <h1>Employee Profile</h1>
             First Name: {this.state.firstName}<br />
             Last Name: {this.state.lastName}<br />
             Username: {this.state.username}<br />
@@ -84,10 +82,6 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
             Company ID: {this.state.companyId}<br />
             User ID: {this.state.userId}<br />
             Employee ID: {this.state.employeeId}
-          </div> )
-    
-        }
-          
       </div>
       
     );
