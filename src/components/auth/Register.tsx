@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FormGroup, TextField, FormLabel, Button, Checkbox } from "@mui/material"
+import { CssBaseline, Typography, Container, FormGroup, TextField, FormLabel, Button, Checkbox } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type RegisterProps = {
@@ -23,6 +23,7 @@ class Register extends Component<RegisterProps, RegisterState> {
         sessionToken: ""
       }
   }
+
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -51,30 +52,37 @@ handleChange = (e: any) => {
   
   render() { 
     return ( 
-        <div>
-            <h1>Register</h1>
+      <Container className="auth" maxWidth="xs">
+        <CssBaseline />
+          <Typography component="h1" variant="h5">
+            Register
+          </Typography>
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <FormGroup>
-                    <FormLabel htmlFor="email">Email</FormLabel>
                     <TextField
-                        label="email"
-                        onChange={(e) => this.setState({email: e.target.value})}
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        type="email"
-                        required
+                      variant="outlined"
+                      margin="normal"
+                      autoComplete="email"
+                      autoFocus
+                      label="Email Address"
+                      onChange={(e) => this.setState({email: e.target.value})}
+                      name="email"
+                      placeholder="Email"
+                      value={this.state.email}
+                      type="email"
+                      required
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="password">Password</FormLabel>
                     <TextField
-                        label="password"
-                        onChange={(e) => this.setState({password: e.target.value})}
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        required
+                      label="Password"
+                      onChange={(e) => this.setState({password: e.target.value})}
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      inputProps={{ pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})" }}
+                      value={this.state.password}
+                      required
                     />
                 </FormGroup>
                 <FormGroup>
@@ -83,9 +91,11 @@ handleChange = (e: any) => {
                   </FormLabel>
                   <Checkbox onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>
-                <Button type="submit">Register</Button>
+                <Button fullWidth type="submit" variant="contained"
+                  color="primary">Register</Button>
             </form>
-        </div>
+      </Container>
+
     );
   }
 }

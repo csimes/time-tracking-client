@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {FormGroup, TextField, FormLabel, Button} from "@mui/material";
+import { FormGroup, TextField, FormLabel, Button, Container, Typography, CssBaseline } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type EmployeeCreateProps = {
@@ -59,12 +59,15 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
 
   render() { 
     return (
-      <div>
-        <h1>Create Employee Profile</h1>
+        <Container className="" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h1" variant="h5">Create Employee Profile</Typography>
         <form onSubmit={(e) => this.createEmployee(e)}>
         <FormGroup>
-          <FormLabel htmlFor="firstName">First Name</FormLabel>            
           <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="First Name"
             onChange={(e) => this.setState({firstName: e.target.value})}
             name="First Name"
@@ -73,8 +76,10 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
             />
         </FormGroup>
         <FormGroup>
-          <FormLabel htmlFor="lastName">Last Name</FormLabel>            
           <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="Last Name"
             onChange={(e) => this.setState({lastName: e.target.value})}
             name="Last Name"
@@ -83,8 +88,10 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           />
           </FormGroup>
           <FormGroup>
-          <FormLabel htmlFor="username">Username</FormLabel>            
           <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="Username"
             onChange={(e) => this.setState({username: e.target.value})}
             name="Username"
@@ -93,8 +100,10 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           />
         </FormGroup>
         <FormGroup>
-          <FormLabel>Department</FormLabel>
             <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="Department"
             onChange={(e) => this.setState({department: e.target.value})}
             name="Department"
@@ -102,9 +111,11 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           />
         </FormGroup>
         <FormGroup>
-          <FormLabel>Title</FormLabel>
             <TextField
-            label="Title"
+            variant="outlined"
+            margin="normal"
+            autoFocus
+            label="Job Title"
             onChange={(e) => this.setState({title: e.target.value})}
             name="Title"
             value={this.state.title}
@@ -113,7 +124,9 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
           <FormGroup>
           <FormLabel>Hire Date</FormLabel>
             <TextField
-            // label="Hire Date"
+            variant="outlined"
+            margin="normal"
+            autoFocus
             onChange={(e) => this.setState({hireDate: e.target.value})}
             name="hireDate"
             value={this.state.hireDate}
@@ -123,17 +136,22 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         <FormGroup>
             <FormLabel>Company Id</FormLabel>
             <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="Company Id"
-            onChange={(e) => this.setState({companyId: e.target.value})}
             name="hireDate"
-            value={this.state.companyId}
+            value="1"
+            /* Keeping value hardcoded in until app is expanded to include other companies */
+            // onChange={(e) => this.setState({companyId: e.target.value})}
+            // value={this.state.companyId}
             required
           />
         </FormGroup>
           <Button type="submit">Add Employee</Button>
         </form>
         {/* <div>{this.state.employeeId}</div> */}
-      </div>
+      </Container>
     );
   }
 } 

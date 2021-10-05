@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
-import {AppBar, Box, Toolbar, Typography, IconButton, FormControlLabel, FormGroup, MenuItem, Menu, Button } from '@mui/material';
+import { Route, Link, Switch } from "react-router-dom";
+import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, Button } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
 import EmployeeIndex from "../employee/EmployeeIndex";
+import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Login from "../auth/Login"
 import Register from "../auth/Register"
-interface NavigationProps {
+
+type NavigationProps = {
   clearToken: () => void,
   sessionToken: string | null,
   protectedViews: () => void,
-  updateToken: (newToken: string) => void
+  updateToken: (newToken: string) => void,
+  employeeId: Number | null,
 }
 
-interface NavigationState {
+type NavigationState = {
   auth: boolean,
   anchorEl: string | null | undefined
 }
@@ -58,7 +60,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
               <MenuIcon />
             </IconButton> */}
 
-            {this.props.sessionToken ? (
+            {this.props.sessionToken !== "" ? (
               <div>
                 <IconButton
                   size="large"
@@ -69,6 +71,9 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                   color="inherit"
                 >
                   <AccountCircle />
+                  <Typography variant="h6" component="h2">
+                      &nbsp; My Account
+                  </Typography>
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -86,7 +91,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                   onClose={this.handleClose}
                 >
                   <MenuItem onClick={this.handleClose}><Link to="/employee/profile">My Profile</Link></MenuItem>
-                  <MenuItem onClick={this.handleClose}><Link to="/employee/timesheets">Timesheets</Link></MenuItem>
+                  <MenuItem onClick={this.handleClose}><Link to="/employee/timesheet">Timesheets</Link></MenuItem>
                   <MenuItem onClick={this.handleClose}>
                       <Link to="" onClick={this.props.clearToken}>
                           Logout
@@ -100,11 +105,8 @@ class Navigation extends Component<NavigationProps, NavigationState> {
             <Button onClick={this.handleClose}><Link to="/login">Login</Link></Button> 
             or
             <Button onClick={this.handleClose}><Link to="/register">Register</Link></Button>
-
             </div>
-
           )
-          
           }
           </Toolbar>
         </AppBar>
@@ -118,7 +120,10 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                 <Register updateToken={this.props.updateToken}/>
               </Route>
               <Route exact path="/employee/profile"> 
-                    <EmployeeIndex sessionToken={this.props.sessionToken} employeeId={null}/>
+                    <EmployeeIndex sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
+              </Route>
+              <Route exact path="/employee/timesheet"> 
+                <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
               </Route>
             </Switch>
         </div>

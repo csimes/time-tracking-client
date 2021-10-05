@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FormGroup, TextField, FormControl, FormControlLabel, FormLabel, Button, Radio, RadioGroup } from "@mui/material";
+import { FormGroup, TextField, FormControl, FormControlLabel, FormLabel, Button, Radio, RadioGroup, Container, CssBaseline, Typography } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 
@@ -56,12 +56,16 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
   
   render() { 
     return (
-      <div>
-        <h1>Timesheet Entry</h1>
+        <Container className="" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h1" variant="h5">Timesheet Entry</Typography>
         <form onSubmit={(e) => this.handleSubmit(e)}>
         <FormGroup>
           <FormLabel htmlFor="hours">Hours</FormLabel>            
           <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus
             type="number"
             label="Hours"
             onChange={(e) => this.setState({hours: parseInt(e.target.value, 10)})}
@@ -86,30 +90,23 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
           </RadioGroup>
           </FormControl>
         </FormGroup>
-                <FormGroup>
+              <FormGroup>
           <FormLabel htmlFor="date">Date</FormLabel>            
           <TextField
+            variant="outlined"
+            margin="normal"
+            autoComplete="email"
+            autoFocus
             type="date"
-            // label="Date"
             onChange={(e) => this.setState({date: e.target.value})}
             name="Date"
             value={this.state.date}
             required 
             />
         </FormGroup>
-                {/* <FormGroup>
-          <FormLabel htmlFor="companyId">Company ID</FormLabel>            
-          <TextField
-            type="number"
-            label="Company Id"
-            onChange={(e) => this.setState({companyId: e.target.value})}
-            name="companyId"
-            value={this.state.companyId}
-            />
-        </FormGroup> */}
           <Button type="submit">Submit Timesheet</Button>
         </form>
-      </div>
+      </Container>
       );
   }
 }

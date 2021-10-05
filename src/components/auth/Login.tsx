@@ -1,5 +1,5 @@
 import React,  { Component } from "react";
-import {FormGroup, TextField, FormLabel, Input, Button} from "@mui/material";
+import { CssBaseline, Typography, Container, FormGroup, TextField, Button } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type LoginProps = {
@@ -42,35 +42,42 @@ fetch(`${APIURL}/user/login`, {
   
   render() { 
     return ( 
-              <div>
-            <h1>Login</h1>
+      <Container className="auth" maxWidth="xs">
+        <CssBaseline />
+          <Typography component="h1" variant="h5">
+            Login
+          </Typography>
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <FormGroup>
-                    {/* <FormLabel htmlFor="email">Email</FormLabel> */}
                     <TextField
-                        label="Email"
-                        onChange={(e) => this.setState({email: e.target.value})}
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        type="email"
-                        required
+                      variant="outlined"
+                      margin="normal"
+                      autoComplete="email"
+                      autoFocus
+                      label="Email Address"
+                      onChange={(e) => this.setState({email: e.target.value})}
+                      name="email"
+                      placeholder="Email"
+                      value={this.state.email}
+                      type="email"
+                      required
                     />
                 </FormGroup>
                 <FormGroup>
-                    {/* <FormLabel htmlFor="password">Password</FormLabel> */}
                     <TextField
-                        label="Password"
-                        onChange={(e) => this.setState({password: e.target.value})}
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        required
+                      label="Password"
+                      onChange={(e) => this.setState({password: e.target.value})}
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.password}
+                      required
                     />
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <Button fullWidth type="submit" variant="contained"
+                  color="primary">Login</Button>
             </form>
-        </div>
+      </Container>
     );
   }
 }

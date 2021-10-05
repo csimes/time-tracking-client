@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import APIURL from "../../helpers/environment";
-import TimesheetIndex from "../timesheets/TimesheetIndex";
 import EmployeeCreate from "./EmployeeCreate";
 import EmployeeProfile from "./EmployeeProfile";
 
@@ -10,48 +8,18 @@ type EmployeeIndexProps = {
   employeeId: Number | null
 }
 
-type EmployeeIndexState = {
-  employeeId: Number | null,
-  results: [] | null
-}
-
-class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
+class EmployeeIndex extends Component<EmployeeIndexProps, {}> {
   constructor(props: EmployeeIndexProps) {
     super(props)
     this.state = { 
-        employeeId: null,
-        results: []
     }
-  }
-  fetchEmployeeId = async () => {
-    fetch(`${APIURL}/employee/`, {
-      method: "GET",
-      headers: new Headers ({
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${this.props.sessionToken}`
-      })
-    })
-    .then((res) => res.json())
-    .then((res) => this.setState({
-      employeeId: res.employeeProfile.id,
-      results: res.employeeProfile
-    }))
-    .then((res) => console.log(res))
-    .catch((err) => (`error: ${err}`));
-    
-  }
-
-  componentDidMount(){
-    this.fetchEmployeeId()
   }
 
   render() { 
     return (  
       <div>
-        {this.state.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} /> : <EmployeeCreate sessionToken={this.props.sessionToken}/>
+        {this.props.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} /> : <EmployeeCreate sessionToken={this.props.sessionToken}/>
         }
-        <TimesheetIndex employeeId={this.state.employeeId} sessionToken={this.props.sessionToken}/>
-        
       </div>
       
     );
