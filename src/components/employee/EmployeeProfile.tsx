@@ -155,8 +155,8 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
             value={this.state.hireDate}
             />
           </FormGroup>
-          <Button type="submit" onClick={this.updateOff}>Save Profile</Button>
-          <Button type="button" onClick={this.updateOff}>Cancel</Button>
+          <Button type="submit">Save Profile</Button>
+          <Button type="button" onClick={this.updateOff}>Close</Button>
 
         </form >)
         :
