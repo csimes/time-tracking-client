@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 import {AppBar, Box, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup, MenuItem, Menu} from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 interface NavigationProps {
-  clearToken: () => void
+  clearToken: () => void,
+  sessionToken: string | null
 }
 
 interface NavigationState {
@@ -33,25 +35,13 @@ class Navigation extends Component<NavigationProps, NavigationState> {
     this.setState({anchorEl: null});
   }
 
+
+
   render() { 
     return (  
-          <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.auth}
-              onChange={(e) => this.handleChange(e)}
-              onClick={this.props.clearToken}
-              aria-label="login switch"
-            />
-          }
-          label={this.state.auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -59,11 +49,9 @@ class Navigation extends Component<NavigationProps, NavigationState> {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
-          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Employee Login
-          </Typography> */}
-          {this.state.auth && (
+          </IconButton> */}
+
+          {this.props.sessionToken && (
             <div>
               <IconButton
                 size="large"
@@ -97,8 +85,6 @@ class Navigation extends Component<NavigationProps, NavigationState> {
           )}
         </Toolbar>
       </AppBar>
-    </Box>
-
     );
   }
 }

@@ -49,7 +49,7 @@ protectedViews(){
   render() {
     return (
     <div className="App">
-      <Nav clearToken={this.clearToken}/>
+      <Nav sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
       <Clock testProp={testProp} />
       {this.protectedViews()}
       {/* <Auth updateToken={this.updateToken} /> */}
