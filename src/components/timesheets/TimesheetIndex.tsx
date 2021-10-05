@@ -3,6 +3,7 @@ import APIURL from "../../helpers/environment";
 import { Button } from "@mui/material";
 
 import TimesheetCreate from "./TimesheetCreate";
+import Clock from "./Clock"
 
 
 type TimesheetIndexProps = {
@@ -68,6 +69,7 @@ class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState>
   render() { 
     return (
       <div>
+        <Clock />
     <TimesheetCreate sessionToken={this.props.sessionToken}/>
 
         <h1>Timesheets</h1>

@@ -4,13 +4,8 @@ type ClockState = {
   time: Date
 }
 
-type AcceptedProps = {
-  testProp: string,
-  optionalProp?: string
-}
-
-class Clock extends Component<AcceptedProps, ClockState> {
-  constructor(props: AcceptedProps){
+class Clock extends Component<{}, ClockState> {
+  constructor(props: any){
     super(props)
       this.state = {
         time: new Date()
@@ -34,8 +29,6 @@ componentDidMount(){
     return(
       <div>
         <h1>{this.state.time.toLocaleTimeString()}</h1>
-        <p>{this.props.testProp}</p>
-        {/* <p>{this.props.optionalProp}</p>  */}
       </div>
     )
   }

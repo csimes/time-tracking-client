@@ -1,11 +1,11 @@
 import React , { Component } from 'react';
 import './App.css';
+import  {BrowserRouter as Router
+} from 'react-router-dom';
 import Auth from './components/auth/Auth';
-import Clock from './components/Clock';
 import EmployeeIndex from './components/employee/EmployeeIndex';
 import Nav from "./components/home/Nav"
 
-let testProp = "This is a test. This is only a test";
 type AppProps = {
   // clearToken: () => void
 }
@@ -49,11 +49,10 @@ protectedViews(){
   render() {
     return (
     <div className="App">
-      <Nav sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
-      <Clock testProp={testProp} />
-      {this.protectedViews()}
-      {/* <Auth updateToken={this.updateToken} /> */}
-      {/* <EmployeeIndex sessionToken={this.state.sessionToken}/> */}
+      <Router>
+        <Nav updateToken={this.updateToken} protectedViews={this.protectedViews} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
+      </Router>
+      {/* {this.protectedViews()} */}
     </div>
   );
   }
