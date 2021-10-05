@@ -97,16 +97,16 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
             required 
             />
         </FormGroup>
-                <FormGroup>
-          <FormLabel htmlFor="hours">Hours</FormLabel>            
+                {/* <FormGroup>
+          <FormLabel htmlFor="companyId">Company ID</FormLabel>            
           <TextField
             type="number"
-            label="Hours"
-            onChange={(e) => this.setState({hours: parseInt(e.target.value, 10)})}
-            name="Hours"
-            value={this.state.hours}
+            label="Company Id"
+            onChange={(e) => this.setState({companyId: e.target.value})}
+            name="companyId"
+            value={this.state.companyId}
             />
-        </FormGroup>
+        </FormGroup> */}
           <Button type="submit">Submit Timesheet</Button>
         </form>
       </div>

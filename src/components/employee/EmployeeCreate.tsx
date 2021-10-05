@@ -32,7 +32,7 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
       }
   }
 
-  handleSubmit = async (e: any) => {
+  createEmployee = async (e: any) => {
     e.preventDefault();
     const { firstName, lastName, username, department, title, hireDate, companyId} = this.state
     
@@ -60,8 +60,8 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
   render() { 
     return (
       <div>
-        <h1>Create Employee Record</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <h1>Create Employee Profile</h1>
+        <form onSubmit={(e) => this.createEmployee(e)}>
         <FormGroup>
           <FormLabel htmlFor="firstName">First Name</FormLabel>            
           <TextField

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import APIURL from "../../helpers/environment";
 import TimesheetIndex from "../timesheets/TimesheetIndex";
+import EmployeeCreate from "./EmployeeCreate";
 import EmployeeProfile from "./EmployeeProfile";
 
 
@@ -11,6 +12,7 @@ type EmployeeIndexProps = {
 
 type EmployeeIndexState = {
   employeeId: Number | null,
+  results: [] | null
 }
 
 class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
@@ -18,6 +20,7 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
     super(props)
     this.state = { 
         employeeId: null,
+        results: []
     }
   }
   fetchEmployeeId = async () => {
@@ -30,7 +33,8 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
     })
     .then((res) => res.json())
     .then((res) => this.setState({
-      employeeId: res.employeeProfile.id
+      employeeId: res.employeeProfile.id,
+      results: res.employeeProfile
     }))
     .then((res) => console.log(res))
     .catch((err) => (`error: ${err}`));
@@ -44,7 +48,8 @@ class EmployeeIndex extends Component<EmployeeIndexProps, EmployeeIndexState> {
   render() { 
     return (  
       <div>
-        <EmployeeProfile  sessionToken={this.props.sessionToken} />
+        {this.state.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} /> : <EmployeeCreate sessionToken={this.props.sessionToken}/>
+        }
         <TimesheetIndex employeeId={this.state.employeeId} sessionToken={this.props.sessionToken}/>
         
       </div>
