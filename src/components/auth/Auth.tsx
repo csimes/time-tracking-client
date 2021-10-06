@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Tabs, Tab, Typography, Box } from "@mui/material"
 import Register from "./Register";
 import Login from "./Login";
+import ParticlesBg from 'particles-bg'
 
 type AuthProps = {
     updateToken: (newToken: string) => void
@@ -44,11 +45,12 @@ class Auth extends Component<AuthProps, AuthState> {
   );
 }
 
-
-
-handleChange = (e: React.SyntheticEvent, newValue: number) => {
-    this.setState({value: newValue});
+  handleChange = (_:any, value: number) => {
+    this.setState({
+      value,
+    });
   };
+  
   a11yProps = (index: number) => {
   return {
     id: `simple-tab-${index}`,
@@ -59,11 +61,12 @@ handleChange = (e: React.SyntheticEvent, newValue: number) => {
     return ( 
 
     <div>
-        <Box sx={{ width: '100%' }}>
+      <ParticlesBg  type="circle" bg={true}/>
+      <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={this.state.value} onChange={(e) => this.handleChange(e, this.state.value)} aria-label="basic tabs example">
-          <Tab label="Item One" {...this.a11yProps(0)} />
-          <Tab label="Item Two" {...this.a11yProps(1)} />
+        <Tabs value={this.state.value} onChange={this.handleChange} aria-label="basic tabs example" centered variant="fullWidth">
+          <Tab label="Login"  value={0}/>
+          <Tab label="Register" value={1}/>
         </Tabs>
       </Box>
       <this.TabPanel value={this.state.value} index={0}>
@@ -80,7 +83,3 @@ handleChange = (e: React.SyntheticEvent, newValue: number) => {
 }
 
 export default Auth;
-
-function newValue(e: any, newValue: any) {
-  throw new Error("Function not implemented.");
-}
