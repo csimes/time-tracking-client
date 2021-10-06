@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import {FormGroup, TextField, Button} from "@mui/material";
+import { CssBaseline, Typography, Container,FormGroup, TextField, Button } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type EmployeeProfileProps = {
@@ -108,13 +108,19 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
 
   
         <div>
-        <h1>Welcome, {this.state.firstName}!</h1>
-        <h1>Employee Profile</h1>
+        <Typography variant="h5">Welcome, {this.state.firstName}!</Typography>
+        <Typography variant="h6">Employee Profile</Typography>
 
         {this.state.updateActive  ? 
-        (<form onSubmit={(e) => this.editEmployee(e)}>
+        (
+        <Container className="auth" maxWidth="xs">
+        <CssBaseline />
+        <form onSubmit={(e) => this.editEmployee(e)}>
           <FormGroup>
-            <TextField 
+            <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus 
             label="First Name"
             onChange={(e) => this.setState({firstName: e.target.value})}
             value={this.state.firstName}
@@ -122,34 +128,49 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
           </FormGroup>
           <FormGroup>
             <TextField 
+            variant="outlined"
+            margin="normal"
+            autoFocus
             label="Last Name"
             onChange={(e) => this.setState({lastName: e.target.value})}
             value={this.state.lastName}
             />
           </FormGroup>
           <FormGroup>
-              <TextField 
+              <TextField
+              variant="outlined"
+              margin="normal"
+              autoFocus 
               label="Username"
               onChange={(e) => this.setState({username: e.target.value})}
               value={this.state.username}
               />
           </FormGroup>
           <FormGroup>
-            <TextField 
+            <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus 
             label="Department"
             onChange={(e) => this.setState({department: e.target.value})}
             value={this.state.department}
             />
           </FormGroup>
           <FormGroup>
-            <TextField 
+            <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus 
             label="Title"
             onChange={(e) => this.setState({title: e.target.value})}
             value={this.state.title}
             />
           </FormGroup>
           <FormGroup>
-            <TextField 
+            <TextField
+            variant="outlined"
+            margin="normal"
+            autoFocus 
             label="Hire Date"
             type="date"
             onChange={(e) => this.setState({hireDate: e.target.value})}
@@ -159,7 +180,9 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
           <Button type="submit">Save Profile</Button>
           <Button type="button" onClick={this.updateOff}>Close</Button>
 
-        </form >)
+        </form >
+        </Container>
+        )
         :
       (<div>
             First Name: {this.state.firstName}<br />

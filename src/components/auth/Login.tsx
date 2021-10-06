@@ -1,5 +1,6 @@
 import React,  { Component } from "react";
 import { CssBaseline, Typography, Container, FormGroup, TextField, Button } from "@mui/material";
+import ParticlesBg from 'particles-bg'
 import APIURL from "../../helpers/environment";
 
 type LoginProps = {
@@ -43,6 +44,7 @@ fetch(`${APIURL}/user/login`, {
   render() { 
     return ( 
       <Container className="auth" maxWidth="xs">
+        <ParticlesBg  type="polygon" bg={true}/>
         <CssBaseline />
           <Typography component="h1" variant="h5">
             Login
@@ -65,6 +67,10 @@ fetch(`${APIURL}/user/login`, {
                 </FormGroup>
                 <FormGroup>
                     <TextField
+                      variant="outlined"
+                      margin="normal"
+                      autoComplete="password"
+                      autoFocus
                       label="Password"
                       onChange={(e) => this.setState({password: e.target.value})}
                       name="password"

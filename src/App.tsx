@@ -7,6 +7,7 @@ import Auth from './components/auth/Auth';
 import EmployeeIndex from './components/employee/EmployeeIndex';
 import Nav from "./components/home/Nav"
 import Home from "./components/home/Home"
+import EmployeeProfile from './components/employee/EmployeeProfile';
 
 type AppProps = {
   // clearToken: () => void
@@ -52,7 +53,6 @@ class App extends Component<AppProps, AppState> {
       console.log(this.state.sessionToken)
     }
   this.fetchEmployeeId()
-
   }
 
   updateToken = (newToken : string) => {
@@ -76,7 +76,7 @@ protectedViews(){
       <Router>
         <Nav employeeId={this.state.employeeId} updateToken={this.updateToken} protectedViews={this.protectedViews} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
       </Router>
-      {this.protectedViews()}
+      {/* {this.protectedViews()} */}
     </div>
   );
   }

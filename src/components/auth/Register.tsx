@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CssBaseline, Typography, Container, FormGroup, TextField, FormLabel, Button, Checkbox } from "@mui/material";
+import ParticlesBg from 'particles-bg'
 import APIURL from "../../helpers/environment";
 
 type RegisterProps = {
@@ -57,6 +58,7 @@ handleChange = (e: any) => {
           <Typography component="h1" variant="h5">
             Register
           </Typography>
+        <ParticlesBg  type="polygon" bg={true}/>
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <FormGroup>
                     <TextField
@@ -75,19 +77,24 @@ handleChange = (e: any) => {
                 </FormGroup>
                 <FormGroup>
                     <TextField
+                      variant="outlined"
+                      margin="normal"
+                      autoComplete="password"
+                      autoFocus
                       label="Password"
                       onChange={(e) => this.setState({password: e.target.value})}
                       name="password"
                       type="password"
                       placeholder="Password"
-                      inputProps={{ pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})" }}
+                      helperText="Helper text test"
+                      // inputProps={{ pattern: "[a-z][A-Z][0-9]{8,16}" }}
                       value={this.state.password}
                       required
                     />
                 </FormGroup>
                 <FormGroup>
                   <FormLabel htmlFor="Admin">
-                  Check if user is an Admin:
+                  Admin User:
                   </FormLabel>
                   <Checkbox onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>

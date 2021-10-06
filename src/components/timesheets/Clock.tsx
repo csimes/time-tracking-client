@@ -10,6 +10,7 @@ class Clock extends Component<{}, ClockState> {
       this.state = {
         time: new Date()
       }
+      this.tick();
   }
 
   tick(){
@@ -17,9 +18,9 @@ class Clock extends Component<{}, ClockState> {
     })
   };
 
-  componentWillMount(){
-    this.tick();
-  };
+  // componentWillMount(){
+    
+  // };
 
 componentDidMount(){
   setInterval(() => this.tick(), 1000)

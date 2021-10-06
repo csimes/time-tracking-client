@@ -7,6 +7,7 @@ import EmployeeProfile from "../employee/EmployeeProfile";
 import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Login from "../auth/Login"
 import Register from "../auth/Register"
+import Auth from "../auth/Auth"
 
 type NavigationProps = {
   clearToken: () => void,
@@ -104,8 +105,6 @@ class Navigation extends Component<NavigationProps, NavigationState> {
           : (
             <div>
             <Button onClick={this.handleClose}><Link to="/login">Login</Link></Button> 
-            or
-            <Button onClick={this.handleClose}><Link to="/register">Register</Link></Button>
             </div>
           )
           }
@@ -115,7 +114,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
         <div>
             <Switch>
               <Route exact path="/login">
-                <Login updateToken={this.props.updateToken}/>
+                <Auth updateToken={this.props.updateToken}/>
               </Route>
               <Route exact path="/register">
                 <Register updateToken={this.props.updateToken}/>
@@ -125,6 +124,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
               </Route>
               <Route exact path="/employee/timesheet"> 
                 <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
+                {/* {this.props.protectedViews} */}
               </Route>
             </Switch>
         </div>
