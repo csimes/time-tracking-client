@@ -67,14 +67,14 @@ class App extends Component<AppProps, AppState> {
   }
 
 protectedViews(){
-  return (this.state.sessionToken === localStorage.getItem("token") ? <EmployeeIndex sessionToken={this.state.sessionToken} employeeId={this.state.employeeId}/> : <Auth updateToken={this.updateToken} /> )
+  return (this.state.sessionToken === localStorage.getItem("token") ? <Home /> : <Auth updateToken={this.updateToken} /> )
 }
 
   render() {
     return (
     <div className="App">
       <Router>
-        <Nav employeeId={this.state.employeeId} updateToken={this.updateToken} protectedViews={this.protectedViews} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
+        <Nav fetchEmployeeId={this.fetchEmployeeId} employeeId={this.state.employeeId} updateToken={this.updateToken} protectedViews={this.protectedViews} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
       </Router>
       {/* {this.protectedViews()} */}
     </div>

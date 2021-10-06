@@ -50,13 +50,7 @@ class Auth extends Component<AuthProps, AuthState> {
       value,
     });
   };
-  
-  a11yProps = (index: number) => {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+
   render() { 
     return ( 
 

@@ -8,6 +8,7 @@ import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Login from "../auth/Login"
 import Register from "../auth/Register"
 import Auth from "../auth/Auth"
+import Home from "../home/Home"
 
 type NavigationProps = {
   clearToken: () => void,
@@ -15,11 +16,12 @@ type NavigationProps = {
   protectedViews: () => void,
   updateToken: (newToken: string) => void,
   employeeId: Number | null,
+  fetchEmployeeId : () => void
 }
 
 type NavigationState = {
   auth: boolean,
-  anchorEl: string | null | undefined
+  anchorEl: any
 }
 
 class Navigation extends Component<NavigationProps, NavigationState> {
@@ -45,7 +47,9 @@ class Navigation extends Component<NavigationProps, NavigationState> {
   }
 
 
-
+componentDidMount(){
+this.props.fetchEmployeeId()
+}
   render() { 
     return (
       <div>
@@ -104,7 +108,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
             )
           : (
             <div>
-            <Button onClick={this.handleClose}><Link to="/login">Login</Link></Button> 
+            
             </div>
           )
           }
@@ -113,18 +117,14 @@ class Navigation extends Component<NavigationProps, NavigationState> {
         </div>
         <div>
             <Switch>
-              <Route exact path="/login">
-                <Auth updateToken={this.props.updateToken}/>
-              </Route>
-              <Route exact path="/register">
-                <Register updateToken={this.props.updateToken}/>
-              </Route>
+              <Route exact path="/">
+                <Home />
+                </Route>
               <Route exact path="/employee/profile"> 
-                  <EmployeeProfile sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
+                  <EmployeeIndex fetchEmployeeId={this.props.fetchEmployeeId} sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
               </Route>
               <Route exact path="/employee/timesheet"> 
                 <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
-                {/* {this.props.protectedViews} */}
               </Route>
             </Switch>
         </div>

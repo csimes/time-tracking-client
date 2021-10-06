@@ -19,7 +19,7 @@ class Home extends Component<HomeProps, HomeState> {
   render() { 
     return (
       <div>
-        <h1>Welcome to Online Digital Office</h1>
+        <h1>Welcome to Digital Office</h1>
       </div>
       );
   }

@@ -6,6 +6,7 @@ import EmployeeProfile from "./EmployeeProfile";
 type EmployeeIndexProps = {
   sessionToken: string | null
   employeeId: Number | null
+  fetchEmployeeId : () => void
 }
 
 class EmployeeIndex extends Component<EmployeeIndexProps, {}> {
@@ -14,6 +15,10 @@ class EmployeeIndex extends Component<EmployeeIndexProps, {}> {
     this.state = { 
     }
   }
+
+componentDidMount(){
+  this.props.fetchEmployeeId()
+}
 
   render() { 
     return (  
