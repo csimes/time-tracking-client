@@ -6,6 +6,7 @@ import APIURL from "./helpers/environment";
 import Auth from './components/auth/Auth';
 import EmployeeIndex from './components/employee/EmployeeIndex';
 import Nav from "./components/home/Nav"
+import Home from "./components/home/Home"
 
 type AppProps = {
   // clearToken: () => void
@@ -75,7 +76,7 @@ protectedViews(){
       <Router>
         <Nav employeeId={this.state.employeeId} updateToken={this.updateToken} protectedViews={this.protectedViews} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
       </Router>
-      {/* {this.protectedViews()} */}
+      {this.protectedViews()}
     </div>
   );
   }

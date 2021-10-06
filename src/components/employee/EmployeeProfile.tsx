@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
-import {FormGroup, FormControl, TextField, FormLabel, Button} from "@mui/material";
+import {FormGroup, TextField, Button} from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type EmployeeProfileProps = {
-  sessionToken: string | null
+  sessionToken: string | null,
+  employeeId: Number | null,
 }
 
 type EmployeeProfileState = {

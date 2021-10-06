@@ -3,6 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, Button } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import EmployeeIndex from "../employee/EmployeeIndex";
+import EmployeeProfile from "../employee/EmployeeProfile";
 import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Login from "../auth/Login"
 import Register from "../auth/Register"
@@ -120,7 +121,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                 <Register updateToken={this.props.updateToken}/>
               </Route>
               <Route exact path="/employee/profile"> 
-                    <EmployeeIndex sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
+                  <EmployeeProfile sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
               </Route>
               <Route exact path="/employee/timesheet"> 
                 <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>

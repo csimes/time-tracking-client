@@ -18,8 +18,8 @@ class EmployeeIndex extends Component<EmployeeIndexProps, {}> {
   render() { 
     return (  
       <div>
-        {this.props.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} /> : <EmployeeCreate sessionToken={this.props.sessionToken}/>
-        }
+        {/* {this.props.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} employeeId={this.props.employeeId} /> : <EmployeeCreate sessionToken={this.props.sessionToken} /> */}
+        {/* } */}
       </div>
       
     );
