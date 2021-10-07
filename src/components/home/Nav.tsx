@@ -108,7 +108,10 @@ this.props.fetchEmployeeId()
               </div>
             )
           : (
-            <MenuItem onClick={this.handleClose}><Link to="/login">Login</Link></MenuItem>
+            <div>
+            <Button onClick={this.handleClose}><Link to="/login">Login</Link></Button>
+            <Button onClick={this.handleClose}><Link to="/">Home</Link></Button>
+            </div>
           )
           }
           </Toolbar>
