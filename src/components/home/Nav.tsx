@@ -107,9 +107,7 @@ this.props.fetchEmployeeId()
               </div>
             )
           : (
-            <div>
-            
-            </div>
+            <MenuItem onClick={this.handleClose}><Link to="/login">Login</Link></MenuItem>
           )
           }
           </Toolbar>
@@ -119,6 +117,9 @@ this.props.fetchEmployeeId()
             <Switch>
               <Route exact path="/">
                 <Home />
+                </Route>
+                <Route exact path="/login">
+                  <Auth updateToken={this.props.updateToken} />
                 </Route>
               <Route exact path="/employee/profile"> 
                   <EmployeeIndex fetchEmployeeId={this.props.fetchEmployeeId} sessionToken={this.props.sessionToken} employeeId={this.props.employeeId}/>
