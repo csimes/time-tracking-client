@@ -45,8 +45,6 @@ class Navigation extends Component<NavigationProps, NavigationState> {
   handleClose = () => {
     this.setState({anchorEl: null});
   }
-
-
 componentDidMount(){
 this.props.fetchEmployeeId()
 }
@@ -65,7 +63,6 @@ this.props.fetchEmployeeId()
             >
               <MenuIcon />
             </IconButton> */}
-
             {this.props.sessionToken !== "" ? (
               <div>
                 <IconButton

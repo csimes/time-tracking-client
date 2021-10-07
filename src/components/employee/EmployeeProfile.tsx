@@ -186,7 +186,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
         </Container>
         )
         :
-      (<div>
+      (<div className="profile">
             First Name: {this.state.firstName}<br />
             Last Name: {this.state.lastName}<br />
             Username: {this.state.username}<br />

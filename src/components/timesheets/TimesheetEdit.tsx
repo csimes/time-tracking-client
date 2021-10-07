@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import APIURL from "../../helpers/environment";
-import { Button, Modal, Box, Typography, TextField, FormGroup, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from "@mui/material";
+import { Container, Button, Modal, Box, Typography, TextField, FormGroup, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 type TimesheetEditProps = {
   sessionToken: string | null
@@ -23,7 +23,7 @@ class TimesheetEdit extends Component<TimesheetEditProps, TimesheetEditState> {
       hours: 0,
       timeType: "Regular",
       date: "",
-      open: false,
+      open: true,
       
     }
   }
@@ -32,7 +32,7 @@ timesheetUpdate = async (e: any) => {
   e.preventDefault();
   const { hours, timeType, date } = this.state
     
-    fetch(`${APIURL}/update/${this.props.timesheetToUpdate.id}`, {
+    await fetch(`${APIURL}/update/${this.props.timesheetToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
         hours: hours,
@@ -64,59 +64,62 @@ handleClose = () => {
 
   render() { 
     return (
-        <Modal open={this.state.open} onClose={this.handleClose}>
-          <Box>
-            <Typography variant="h6">Edit Timesheet</Typography>
-        <form onSubmit={(e) => this.timesheetUpdate(e)}>
-        <FormGroup>
-          <FormLabel htmlFor="hours">Edit Hours</FormLabel>            
-          <TextField
-            variant="outlined"
-            margin="normal"
-            autoFocus
-            type="number"
-            label="Hours"
-            onChange={(e) => this.setState({hours: parseInt(e.target.value, 10)})}
-            name="Hours"
-            value={this.props.timesheetToUpdate.hours}
-            required 
-            />
-        </FormGroup>
-        <FormGroup>
-        <FormControl component="fieldset">
-          <FormLabel component="legend" htmlFor="timeType">Edit Time Type</FormLabel>            
-          <RadioGroup
-            aria-label="timeType"
-            value={this.props.timesheetToUpdate.timeType}
-            name="radio-buttons-group"
-            onChange={(e) => this.setState({timeType: e.target.value})}
-          >
-            <FormControlLabel value="Regular" control={<Radio />} label="Regular" />
-            <FormControlLabel value="Vacation" control={<Radio />} label="Vacation" />
-            <FormControlLabel value="Personal" control={<Radio />} label="Personal" />
-            <FormControlLabel value="Sick" control={<Radio />} label="Sick" />
-          </RadioGroup>
-          </FormControl>
-        </FormGroup>
-              <FormGroup>
-          <FormLabel htmlFor="date">Edit Date</FormLabel>            
-          <TextField
-            variant="outlined"
-            margin="normal"
-            autoComplete="email"
-            autoFocus
-            type="date"
-            onChange={(e) => this.setState({date: e.target.value})}
-            name="Date"
-            value={this.props.timesheetToUpdate.date}
-            required 
-            />
-        </FormGroup>
-          <Button type="submit">Update Timesheet</Button>
-        </form>
-          </Box>
-        </Modal>
 
+    <Container className="auth" maxWidth="xs">
+      <Modal open={this.state.open} onClose={this.handleClose}>
+                <Box>
+                  <Typography variant="h6">Edit Timesheet</Typography>
+              <form onSubmit={(e) => this.timesheetUpdate(e)}>
+              <FormGroup>
+                <FormLabel htmlFor="hours">Edit Hours</FormLabel>            
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  autoFocus
+                  type="number"
+                  label="Hours"
+                  onChange={(e) => this.setState({hours: parseInt(e.target.value, 10)})}
+                  name="Hours"
+                  defaultValue={this.props.timesheetToUpdate.hours}
+                  required 
+                  />
+              </FormGroup>
+              <FormGroup>
+              <FormControl component="fieldset">
+                <FormLabel component="legend" htmlFor="timeType">Edit Time Type</FormLabel>            
+                <RadioGroup
+                  aria-label="timeType"
+                  defaultValue={this.props.timesheetToUpdate.timeType}
+                  name="radio-buttons-group"
+                  onChange={(e) => this.setState({timeType: e.target.value})}
+                >
+                  <FormControlLabel value="Regular" control={<Radio />} label="Regular" />
+                  <FormControlLabel value="Vacation" control={<Radio />} label="Vacation" />
+                  <FormControlLabel value="Personal" control={<Radio />} label="Personal" />
+                  <FormControlLabel value="Sick" control={<Radio />} label="Sick" />
+                </RadioGroup>
+                </FormControl>
+              </FormGroup>
+                    <FormGroup>
+                <FormLabel htmlFor="date">Edit Date</FormLabel>            
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  autoComplete="email"
+                  autoFocus
+                  type="date"
+                  onChange={(e) => this.setState({date: e.target.value})}
+                  name="Date"
+                  defaultValue={this.props.timesheetToUpdate.date}
+                  required 
+                  />
+              </FormGroup>
+                <Button type="submit">Update Timesheet</Button>
+                <Button onClick={this.handleClose} >Cancel</Button>
+              </form>
+                </Box>
+              </Modal>
+    </Container>
       );
   }
 }

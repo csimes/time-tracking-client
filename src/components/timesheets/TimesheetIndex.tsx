@@ -50,7 +50,7 @@ class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState>
 
 
     editTimesheet = (timesheet : any) => {
-        this.setState({timesheetToUpdate: this.state.results});
+        this.setState({timesheetToUpdate: timesheet});
         console.log(timesheet);
     }
 
@@ -73,7 +73,7 @@ class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState>
         <Clock />
     <TimesheetCreate employeeId={this.props.employeeId} fetchTimesheets={this.fetchTimesheets} sessionToken={this.props.sessionToken}/>
     <TimesheetTable fetchTimesheets={this.fetchTimesheets} editTimesheet={this.editTimesheet} results={this.state.results} updateOn={this.updateOn} employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
-    {this.state.updateActive ? <TimesheetEdit timesheetToUpdate={this.state.timesheetToUpdate} updateOff={this.updateOff} fetchTimesheets={this.fetchTimesheets} sessionToken={this.props.sessionToken} />: <></>}
+    {this.state.updateActive === true ? <TimesheetEdit timesheetToUpdate={this.state.timesheetToUpdate} updateOff={this.updateOff} fetchTimesheets={this.fetchTimesheets} sessionToken={this.props.sessionToken} />: <></>}
       </Container>
       );
   }

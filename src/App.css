@@ -1,15 +1,68 @@
+
+
 .App {
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   text-align: center;
+  /* background-color: #E1F2FE */
 }
 
-h1,
-p {
-  font-family: Arial, Helvetica, sans-serif;
+h1, h2, h3, h4, h5,
+p, .MuiTypography-root, div, a {
+  color: #5497A7;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 }
 
-.auth {
+.auth{
   background-color: rgb(235, 253, 254, 0.625);
   border-radius: 10px;
   margin: 2em;
   padding: 1em;
+  
+}
+
+.MuiToolbar-root {
+  background-color: #50858B
+}
+
+.MuiContainer-root, div.MuiBox-root, div.css-0 {
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  color: #5497A7;
+  border-radius: 1rem;
+}
+
+button.MuiButton-root {
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  color: #5497A7;
+  background-color: #444054;
+  margin: .25rem;
+}
+
+.MuiModal-root {
+  max-width: 50vw;
+}
+
+.profile {
+  margin: auto;
+}
+
+
+.MuiTypography-root {
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  color: #444054
+}
+
+div.profile {
+  padding: 1rem
+}
+
+video.background-video {
+  max-height: 100%;
+  max-width: 100%
+}
+
+h1.title {
+  color: #E1F2FE;
+  position: absolute;
+  top: 50%;
+  left: 40%;
 }

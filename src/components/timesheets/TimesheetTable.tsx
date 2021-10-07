@@ -28,8 +28,8 @@ class TimesheetTable extends Component<TimesheetTableProps, TimesheetTableState>
       console.log(this.props.results)
   }
 
-deleteTimesheet = (timesheet: any) => {
-    fetch(`http://localhost:3000/remove/${timesheet.id}`, {
+deleteTimesheet = async (timesheet: any) => {
+    await fetch(`http://localhost:3000/remove/${timesheet.id}`, {
         method: "DELETE",
         headers: new Headers ({
             "Content-Type": "application/json",

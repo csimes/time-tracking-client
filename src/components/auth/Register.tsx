@@ -84,7 +84,7 @@ handleChange = (e: any) => {
                       name="password"
                       type="password"
                       placeholder="Password"
-                      helperText="Helper text test"
+                      // helperText="Helper text test"
                       // inputProps={{ pattern: "[a-z][A-Z][0-9]{8,16}" }}
                       value={this.state.password}
                       required

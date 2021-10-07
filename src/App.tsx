@@ -4,10 +4,8 @@ import  {BrowserRouter as Router
 } from 'react-router-dom';
 import APIURL from "./helpers/environment";
 import Auth from './components/auth/Auth';
-import EmployeeIndex from './components/employee/EmployeeIndex';
 import Nav from "./components/home/Nav"
 import Home from "./components/home/Home"
-import EmployeeProfile from './components/employee/EmployeeProfile';
 
 type AppProps = {
   // clearToken: () => void
