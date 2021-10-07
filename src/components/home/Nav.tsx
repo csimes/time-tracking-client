@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
-import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, Button } from '@mui/material';
+import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, Button } from "@mui/material";
 import { AccountCircle } from '@mui/icons-material';
 import EmployeeIndex from "../employee/EmployeeIndex";
 import EmployeeProfile from "../employee/EmployeeProfile";
@@ -96,6 +96,7 @@ this.props.fetchEmployeeId()
                   open={Boolean(this.state.anchorEl)}
                   onClose={this.handleClose}
                 >
+                  <MenuItem onClick={this.handleClose}><Link to="/">Home</Link></MenuItem>
                   <MenuItem onClick={this.handleClose}><Link to="/employee/profile">My Profile</Link></MenuItem>
                   <MenuItem onClick={this.handleClose}><Link to="/employee/timesheet">Timesheets</Link></MenuItem>
                   <MenuItem onClick={this.handleClose}>
