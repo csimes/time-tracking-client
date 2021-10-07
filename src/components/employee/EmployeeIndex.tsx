@@ -5,7 +5,7 @@ import EmployeeProfile from "./EmployeeProfile";
 
 type EmployeeIndexProps = {
   sessionToken: string | null
-  employeeId: Number | null
+  employeeId: number | null
   fetchEmployeeId : () => void
 }
 

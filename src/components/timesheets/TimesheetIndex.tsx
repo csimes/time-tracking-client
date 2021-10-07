@@ -8,16 +8,16 @@ import Clock from "./Clock"
 
 type TimesheetIndexProps = {
 sessionToken: string | null
-employeeId: Number | null
+employeeId: number | null
 }
 
 type TimesheetIndexState = {
-  hours: Number | 0,
+  hours: number | 0,
   timeType: string,
   date: string,
-  employeeId: Number | null,
-  projectId: Number | null,
-  companyId: Number | null,
+  employeeId: number | null,
+  projectId: number | null,
+  companyId: number | null,
   results: [] | undefined
 }
 
@@ -37,7 +37,7 @@ class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState>
   
     fetchTimesheets = async () => {
 
-    fetch(`${APIURL}/timesheet/${this.props.employeeId}`, {
+    await fetch(`${APIURL}/timesheet/${this.props.employeeId}`, {
       method: "GET",
   
       headers: new Headers({

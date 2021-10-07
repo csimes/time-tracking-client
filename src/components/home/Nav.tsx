@@ -15,7 +15,7 @@ type NavigationProps = {
   sessionToken: string | null,
   protectedViews: () => void,
   updateToken: (newToken: string) => void,
-  employeeId: Number | null,
+  employeeId: number | null,
   fetchEmployeeId : () => void
 }
 

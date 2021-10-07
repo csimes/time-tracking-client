@@ -15,7 +15,7 @@ type AppProps = {
 
 type AppState = {
   sessionToken: string | null,
-  employeeId: Number | null
+  employeeId: number | null
 
 }
 

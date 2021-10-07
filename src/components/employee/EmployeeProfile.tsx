@@ -5,7 +5,7 @@ import APIURL from "../../helpers/environment";
 
 type EmployeeProfileProps = {
   sessionToken: string | null,
-  employeeId: Number | null,
+  employeeId: number | null,
 }
 
 type EmployeeProfileState = {
@@ -15,8 +15,8 @@ type EmployeeProfileState = {
         department: string,
         title: string,
         hireDate: string,
-        companyId: Number | null,
-        employeeId: Number | null,
+        companyId: number | null,
+        employeeId: number | null,
         userId: Number | null,
         updateActive: boolean,
 

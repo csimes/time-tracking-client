@@ -8,12 +8,12 @@ sessionToken: string | null
 }
 
 type TimesheetCreateState = {
-  hours: Number | 0,
+  hours: number | 0,
   timeType: string,
   date: string,
-  employeeId: Number | undefined,
-  projectId: Number | undefined,
-  companyId: Number | undefined,
+  employeeId: number | undefined,
+  projectId: number | undefined,
+  companyId: number | undefined,
 }
 
 class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateState> {
@@ -33,7 +33,7 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
     e.preventDefault();
     const { hours, timeType, date, employeeId, projectId, companyId } = this.state
     
-    fetch(`${APIURL}/timesheet/new`, {
+    await fetch(`${APIURL}/timesheet/new`, {
       method: "POST",
       body: JSON.stringify({
         hours: hours,

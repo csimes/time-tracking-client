@@ -14,7 +14,7 @@ type EmployeeCreateState = {
   title: string | null,
   hireDate: string,
   companyId: string | null,
-  employeeId: Number | null
+  employeeId: number | null
 } 
 
 class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState> {
