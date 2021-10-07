@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import APIURL from "../../helpers/environment";
-import { Button } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 
 import TimesheetCreate from "./TimesheetCreate";
 import Clock from "./Clock"
+import TimesheetTable from "./TimesheetTable";
+import TimesheetEdit from "./TimesheetEdit";
 
 
 type TimesheetIndexProps = {
@@ -12,26 +14,18 @@ employeeId: number | null
 }
 
 type TimesheetIndexState = {
-  hours: number | 0,
-  timeType: string,
-  date: string,
-  employeeId: number | null,
-  projectId: number | null,
-  companyId: number | null,
-  results: [] | undefined
+  results: [],
+  updateActive: boolean,
+  timesheetToUpdate: {}
 }
 
 class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState> {
   constructor(props: TimesheetIndexProps) {
     super(props)
     this.state = {
-      hours: 0,
-      timeType: "",
-      date: "",
-      employeeId: null,
-      projectId: null,
-      companyId: null,
-      results: []
+      results: [],
+      updateActive: false,
+      timesheetToUpdate: {}
       }
   }
   
@@ -49,38 +43,38 @@ class TimesheetIndex extends Component<TimesheetIndexProps, TimesheetIndexState>
     .then((res) => res.json())
     .then((res) => this.setState({
       results: res.employeeTimesheets,
-      hours: res.employeeTimesheets[0].hours,
-      timeType: res.employeeTimesheets[0].timeType,
-      date: res.employeeTimesheets[0].date,
-      employeeId: res.employeeTimesheets[0].EmployeeId,
-      projectId: res.employeeTimesheets[0].ProjectId,
-      companyId: res.employeeTimesheets[0].CompanyId,
     }))
     .catch((err) => (`error: ${err}`));
     console.log(this.state.results)
   }
 
 
+    editTimesheet = (timesheet : any) => {
+        this.setState({timesheetToUpdate: this.state.results});
+        console.log(timesheet);
+    }
+
+    updateOn = () => {
+        this.setState({ updateActive: true});
+    }
+    updateOff = () => {
+    this.setState({ updateActive: false});
+    }
+    
+
   componentDidMount() {
     this.fetchTimesheets()
-  
   }
   
   render() { 
     return (
-      <div>
+      <Container maxWidth="md">
+        <CssBaseline />
         <Clock />
-    <TimesheetCreate sessionToken={this.props.sessionToken}/>
-
-        <h1>Timesheets</h1>
-        Hours: {this.state.hours}
-        Time Type: {this.state.timeType}
-        Date: {this.state.date}
-        Employee Id: {this.state.employeeId}
-        Project Id: {this.state.projectId}
-        Company Id: {this.state.companyId}
-        <Button onClick={this.fetchTimesheets}>Get Timesheets</Button>
-      </div>
+    <TimesheetCreate employeeId={this.props.employeeId} fetchTimesheets={this.fetchTimesheets} sessionToken={this.props.sessionToken}/>
+    <TimesheetTable fetchTimesheets={this.fetchTimesheets} editTimesheet={this.editTimesheet} results={this.state.results} updateOn={this.updateOn} employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
+    {this.state.updateActive ? <TimesheetEdit timesheetToUpdate={this.state.timesheetToUpdate} updateOff={this.updateOff} fetchTimesheets={this.fetchTimesheets} sessionToken={this.props.sessionToken} />: <></>}
+      </Container>
       );
   }
 }

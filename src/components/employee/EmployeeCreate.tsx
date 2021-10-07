@@ -150,7 +150,6 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         </FormGroup>
           <Button type="submit">Add Employee</Button>
         </form>
-        {/* <div>{this.state.employeeId}</div> */}
       </Container>
     );
   }

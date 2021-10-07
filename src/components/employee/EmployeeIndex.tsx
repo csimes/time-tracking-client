@@ -20,10 +20,14 @@ componentDidMount(){
   this.props.fetchEmployeeId()
 }
 
+componentDidUpdate(){
+  this.props.fetchEmployeeId()
+}
+
   render() { 
     return (  
       <div>
-        {this.props.employeeId !== null ? <EmployeeProfile sessionToken={this.props.sessionToken} employeeId={this.props.employeeId} /> : <EmployeeCreate sessionToken={this.props.sessionToken} /> }
+        {this.props.employeeId !== null ? <EmployeeProfile fetchEmployeeId={this.props.fetchEmployeeId} sessionToken={this.props.sessionToken} employeeId={this.props.employeeId} /> : <EmployeeCreate sessionToken={this.props.sessionToken} /> }
 
 
       </div>

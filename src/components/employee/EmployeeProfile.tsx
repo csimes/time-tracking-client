@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
-import { CssBaseline, Typography, Container,FormGroup, TextField, Button } from "@mui/material";
+import { CssBaseline, Typography, Container, FormGroup, TextField, Button } from "@mui/material";
 import APIURL from "../../helpers/environment";
 
 type EmployeeProfileProps = {
   sessionToken: string | null,
   employeeId: number | null,
+  fetchEmployeeId : () => void
 }
 
 type EmployeeProfileState = {
@@ -66,6 +67,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
     
   }
   componentDidMount(){
+    this.props.fetchEmployeeId()
     this.fetchEmployee()
   }
 
