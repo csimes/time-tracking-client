@@ -29,7 +29,7 @@ class Register extends Component<RegisterProps, RegisterState> {
     e.preventDefault();
     const { email, password, isAdmin } = this.state
 
-fetch(`${APIURL}/user/register`, {
+  await fetch(`${APIURL}/user/register`, {
       method: "POST",
       body: JSON.stringify({
         email: email,

@@ -32,7 +32,7 @@ class App extends Component<AppProps, AppState> {
 
 
     fetchEmployeeId = async () => {
-    fetch(`${APIURL}/employee/`, {
+    await fetch(`${APIURL}/employee/`, {
       method: "GET",
       headers: new Headers ({
         "Content-Type": "application/json",
