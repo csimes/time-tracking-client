@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import APIURL from "../../helpers/environment";
-import { Container, Button, Modal, Box, Typography, TextField, FormGroup, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from "@mui/material";
+import { Container, Button, Dialog, Box, Typography, TextField, FormGroup, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 type TimesheetEditProps = {
   sessionToken: string | null
@@ -47,7 +47,7 @@ timesheetUpdate = async (e: any) => {
     
     .then((res) => res.json())
     .then((res) => this.props.fetchTimesheets())
-    .then((res) => this.props.updateOff())
+    // .then((res) => this.props.updateOff())-
     .then((res) => console.log(res))
     .catch((err) => (`error: ${err}`));
       }
@@ -65,9 +65,9 @@ handleClose = () => {
   render() { 
     return (
 
-    <Container className="auth" maxWidth="xs">
-      <Modal open={this.state.open} onClose={this.handleClose}>
-                <Box>
+    <Container className="timesheet" maxWidth="md">
+      <Dialog open={this.state.open} onClose={this.handleClose}>
+                <Box >
                   <Typography variant="h6">Edit Timesheet</Typography>
               <form onSubmit={(e) => this.timesheetUpdate(e)}>
               <FormGroup>
@@ -118,7 +118,7 @@ handleClose = () => {
                 <Button onClick={this.handleClose} >Cancel</Button>
               </form>
                 </Box>
-              </Modal>
+              </Dialog>
     </Container>
       );
   }

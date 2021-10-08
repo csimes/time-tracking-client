@@ -7,18 +7,13 @@ import Auth from './components/auth/Auth';
 import Nav from "./components/home/Nav"
 import Home from "./components/home/Home"
 
-type AppProps = {
-  // clearToken: () => void
-}
-
 type AppState = {
   sessionToken: string | null,
   employeeId: number | null
-
 }
 
-class App extends Component<AppProps, AppState> {  
-  constructor(props: AppProps){
+class App extends Component<{}, AppState> {  
+  constructor(props: any){
     super(props)
       this.state = { 
         sessionToken : "",
@@ -65,7 +60,9 @@ class App extends Component<AppProps, AppState> {
   }
 
 protectedViews(){
-  return (this.state.sessionToken === localStorage.getItem("token") ? <Home /> : <Auth updateToken={this.updateToken} /> )
+  return (this.state.sessionToken === localStorage.getItem("token") ?
+  <Home /> : 
+  <Auth updateToken={this.updateToken} /> )
 }
 
   render() {

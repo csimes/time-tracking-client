@@ -16,7 +16,7 @@ type EmployeeProfileState = {
         department: string,
         title: string,
         hireDate: string,
-        companyId: number | null,
+        companyId: number,
         employeeId: number | null,
         userId: Number | null,
         updateActive: boolean,
@@ -33,7 +33,7 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
         department: "",
         title: "",
         hireDate: "",
-        companyId: null,
+        companyId: 1,
         employeeId: null,
         userId: null,
         updateActive: false,
@@ -58,9 +58,9 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
       department: res.employeeProfile.department,
       title: res.employeeProfile.title,
       hireDate: res.employeeProfile.hireDate,
-      companyId: res.employeeProfile.CompanyId,
+      companyId: this.state.companyId,
       userId: res.employeeProfile.UserId,
-      employeeId: res.employeeProfile.id
+      employeeId: this.props.employeeId
     }))
     .then((data) => console.log(data))
     .catch((err) => (`error: ${err}`));
@@ -109,10 +109,11 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
     return (  
 
   
-        <div>
+        <div className="profile">
+          <div className="profileheading">
         <Typography variant="h5">Welcome, {this.state.firstName}!</Typography>
         <Typography variant="h6">Employee Profile</Typography>
-
+          </div>
         {this.state.updateActive  ? 
         (
         <Container className="auth" maxWidth="xs">
@@ -186,18 +187,70 @@ class EmployeeProfile extends Component<EmployeeProfileProps, EmployeeProfileSta
         </Container>
         )
         :
-      (<div className="profile">
-            First Name: {this.state.firstName}<br />
-            Last Name: {this.state.lastName}<br />
-            Username: {this.state.username}<br />
-            Department: {this.state.department}<br />
-            Title: {this.state.title}<br />
-            Hire Date: {this.state.hireDate}<br />
-            Company ID: {this.state.companyId}<br />
-            User ID: {this.state.userId}<br />
-            Employee ID: {this.state.employeeId}<br />
-            <Button type="button" onClick={this.updateOn}>Edit Profile</Button>
-        </div>)
+      (
+      <Container className="auth" maxWidth="xs">
+        <CssBaseline />
+          <FormGroup>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            disabled 
+            label="First Name"
+            onChange={(e) => this.setState({firstName: e.target.value})}
+            value={this.state.firstName}
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            label="Last Name"
+            value={this.state.lastName}
+            disabled
+            />
+          </FormGroup>
+          <FormGroup>
+              <TextField
+              variant="outlined"
+              margin="normal"
+              disabled 
+              label="Username"
+              onChange={(e) => this.setState({username: e.target.value})}
+              value={this.state.username}
+              />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            disabled 
+            label="Department"
+            onChange={(e) => this.setState({department: e.target.value})}
+            value={this.state.department}
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            disabled 
+            label="Title"
+            onChange={(e) => this.setState({title: e.target.value})}
+            value={this.state.title}
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            disabled 
+            label="Hire Date"
+            value={this.state.hireDate}
+            />
+          </FormGroup>
+            <Button className="profilebutton"type="button" onClick={this.updateOn}>Edit Profile</Button>
+        </Container>
+        )
       }
       </div>
       

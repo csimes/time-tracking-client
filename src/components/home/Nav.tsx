@@ -3,10 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, Button } from "@mui/material";
 import { AccountCircle } from '@mui/icons-material';
 import EmployeeIndex from "../employee/EmployeeIndex";
-import EmployeeProfile from "../employee/EmployeeProfile";
 import TimesheetIndex from "../timesheets/TimesheetIndex";
-import Login from "../auth/Login"
-import Register from "../auth/Register"
 import Auth from "../auth/Auth"
 import Home from "../home/Home"
 
@@ -52,17 +49,8 @@ this.props.fetchEmployeeId()
     return (
       <div>
         <div>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
-            {/* <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton> */}
             {this.props.sessionToken !== "" ? (
               <div>
                 <IconButton

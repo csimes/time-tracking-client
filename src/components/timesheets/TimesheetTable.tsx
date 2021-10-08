@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import APIURL from "../../helpers/environment";
-import { Button, Table } from "@mui/material";
+import APIURL from "../../helpers/environment";
+import { Button, Table, Divider } from "@mui/material";
 
 type TimesheetTableProps = {
 sessionToken: string | null
@@ -36,7 +36,7 @@ deleteTimesheet = async (timesheet: any) => {
             "Authorization": `Bearer ${this.props.sessionToken}`
         })
     })
-    .then(() => this.props.fetchTimesheets())
+    .then((res) => this.props.fetchTimesheets())
 }
 
   timesheetMapper = () => {
@@ -68,7 +68,7 @@ deleteTimesheet = async (timesheet: any) => {
     return (
       <div>
             <h3>Timesheet History</h3>
-            <hr/>
+            <Divider />
             <Table>
                 <thead>
                     <tr>

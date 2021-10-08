@@ -1,27 +1,28 @@
-
-
 .App {
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   text-align: center;
-  /* background-color: #E1F2FE */
 }
 
 h1, h2, h3, h4, h5,
-p, .MuiTypography-root, div, a {
+p, .MuiTypography-root, h1.MuiTypography-root, div, a, div.MuiContainer-root, label {
   color: #5497A7;
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 }
 
 .auth{
-  background-color: rgb(235, 253, 254, 0.625);
+  background-color: rgba(151, 181, 184, 0.781);
   border-radius: 10px;
   margin: 2em;
   padding: 1em;
   
 }
-
+h2.MuiTypography-root, svg.MuiSvgIcon-root, span.MuiTabs-indicator, span.MuiTouchRipple-root {
+  color: #E1F2FE;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+}
 .MuiToolbar-root {
-  background-color: #50858B
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  background-color: #50858B;
 }
 
 .MuiContainer-root, div.MuiBox-root, div.css-0 {
@@ -37,33 +38,44 @@ button.MuiButton-root {
   margin: .25rem;
 }
 
-.MuiModal-root {
-  max-width: 50vw;
-}
-
-.profile {
-  margin: auto;
-}
-
-
-.MuiTypography-root {
+h5.MuiTypography-root, h6.MuiTypography-root, span.MuiTypography-body1, legend.MuiFormLabel-root, label.MuiFormLabel-root, svg.MuiSvgIcon-root, input.MuiOutlinedInput-input {
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   color: #444054
 }
 
-div.profile {
-  padding: 1rem
+div.profileheading {
+  padding: 2rem;
+  margin: auto
 }
-
-video.background-video {
-  max-height: 100vh;
-  max-width: 100vh
+Button.profilebutton {
+  margin: auto;
+  padding: .5rem
 }
 
 h1.title {
-  font-size: 5rem;
-  color: #E1F2FE;
+  font-size: 3rem;
+  color: #444054;
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: 50;
+  left: 50;
+}
+
+Container.timesheet {
+  background-color: #444054;
+  max-width: 50vw;
+  max-height: 50vh;
+}
+
+div.MuiPaper-root {
+  margin: auto;
+}
+
+button.MuiButtonBase-root  {
+  color: #E1F2FE;
+  border-color: #E1F2FE;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+}
+
+button.MuiButtonBase-root:hover{
+  color: #444054;
 }
