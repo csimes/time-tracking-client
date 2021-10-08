@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Digital Office 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Digital Office is currently in version 1.0.
 
-## Available Scripts
+Digital Office was created to help users manage their time spent working. Whether freelance or a regular W2 employee, a user is able to login, create a profile,
+and do some simple time tracking, with the ability to view their entire history of timesheets and edit them as needed.
 
-In the project directory, you can run:
+It was created using the PERN stack (PostgreSQL, Express, React, Node.js). An admin user is able see the timesheets for all users.
 
-### `npm start`
+Future versions are planned to include featurs such as project and account tracking, time off requests, and a simple messaging system. Non-registered
+users may be able to access some limited, but useful features, such as a pomodoro timer, and gross paycheck calculator. Features available to non-registered users
+would be available to registered users as well.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The server side of this project used the following dependencies:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+| Package       | Version  |
+| ------------- | ---------|
+| bcryptjs      | 2.4.3    |
+| cors          | 2.8.5    |
+| dotenv        | 10.0.0   |
+| express       | 4.17.1   |
+| jsonwebtoken  | 8.5.1    |
+| pg            | 8.7.1    |
+| pg-hstore     | 2.3.4    |
+| sequelize     | 6.6.5    |
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The server side of the project can be found here: https://github.com/csimes/time-tracking-sever
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The deployed version of the project can be found here: https://cs-timetrackerclient.herokuapp.com/
