@@ -49,7 +49,7 @@ this.props.fetchEmployeeId()
     return (
       <div>
         <div>
-        <AppBar position="fixed">
+        <AppBar position="sticky">
           <Toolbar>
             {this.props.sessionToken !== "" ? (
               <div>
