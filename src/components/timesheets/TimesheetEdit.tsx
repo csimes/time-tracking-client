@@ -65,8 +65,8 @@ handleClose = () => {
   render() { 
     return (
 
-    <Container className="timesheet" maxWidth="md">
-      <Dialog className="timesheet-edit" open={this.state.open} onClose={this.handleClose}>
+    <Container className="timesheet" maxWidth="lg">
+      <Dialog fullWidth={true} className="timesheet-edit" open={this.state.open} onClose={this.handleClose}>
                 <Box >
                   <Typography variant="h6">Edit Timesheet</Typography>
               <form onSubmit={(e) => this.timesheetUpdate(e)}>

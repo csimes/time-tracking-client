@@ -15,7 +15,6 @@ class TimesheetTable extends Component<TimesheetTableProps, {}>{
   constructor(props: TimesheetTableProps) {
     super(props)
     this.state = {
-      open: true
       }
   }
 
