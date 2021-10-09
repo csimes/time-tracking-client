@@ -38,8 +38,6 @@ class AdminView extends Component<AdminViewProps, AdminViewState> {
       </div>
     )
   }
-
-
 }
 
 
