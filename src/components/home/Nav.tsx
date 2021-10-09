@@ -91,9 +91,8 @@ this.props.fetchEmployeeId()
                       </Link>
                   </MenuItem>
                   <MenuItem>                  
-                  <Button onClick={this.handleClose}>
-                    Admin
-                  <Link to="/companytimesheets" />
+                  <Button >
+                  <Link to="/companytimesheets">Admin</Link>
                   </Button>
                   </MenuItem>
                 </Menu>
