@@ -20,9 +20,9 @@ class TimesheetEdit extends Component<TimesheetEditProps, TimesheetEditState> {
   constructor(props: TimesheetEditProps){
     super(props) 
       this.state = { 
-      hours: 0,
-      timeType: "Regular",
-      date: "",
+      hours: this.props.timesheetToUpdate.hours,
+      timeType: this.props.timesheetToUpdate.timeType,
+      date: this.props.timesheetToUpdate.date,
       open: true,
       
     }
