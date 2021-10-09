@@ -32,7 +32,7 @@ timesheetUpdate = async (e: any) => {
   e.preventDefault();
   const { hours, timeType, date } = this.state
     
-    await fetch(`${APIURL}/update/${this.props.timesheetToUpdate.id}`, {
+    await fetch(`${APIURL}/timesheet/update/${this.props.timesheetToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
         hours: hours,

@@ -20,7 +20,7 @@ class AdminView extends Component<AdminViewProps, AdminViewState> {
   }
   
   fetchAllTimesheets = async () => {
-    await fetch(`${APIURL}/bycompany/${this.state.companyId}`, {
+    await fetch(`${APIURL}/timesheet/bycompany/${this.state.companyId}`, {
       method: "GET",
       headers: new Headers ({
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ class AdminView extends Component<AdminViewProps, AdminViewState> {
 
 
   deleteEmployee = async (employee: any) => {
-    await fetch(`${APIURL}/remove/${employee.id}`, {
+    await fetch(`${APIURL}/employee/remove/${employee.id}`, {
         method: "DELETE",
         headers: new Headers ({
             "Content-Type": "application/json",

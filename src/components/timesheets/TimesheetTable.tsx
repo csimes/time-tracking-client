@@ -19,7 +19,7 @@ class TimesheetTable extends Component<TimesheetTableProps, {}>{
   }
 
 deleteTimesheet = async (timesheet: any) => {
-    await fetch(`${APIURL}/remove/${timesheet.id}`, {
+    await fetch(`${APIURL}/timesheet/remove/${timesheet.id}`, {
         method: "DELETE",
         headers: new Headers ({
             "Content-Type": "application/json",
@@ -43,7 +43,7 @@ deleteTimesheet = async (timesheet: any) => {
                       </Button>
                     <Button onClick={()=> this.deleteTimesheet(timesheet)}>
                         Delete
-                    </Button>
+                        </Button>
                 </td>
             </tr>
         );
