@@ -57,8 +57,7 @@ class AdminView extends Component<AdminViewProps, AdminViewState> {
             "Authorization": `Bearer ${this.props.sessionToken}`
         })
     })
-    .then((res) => res.json())
-    .then((res) => console.log(res))
+    .then(() => this.fetchAllEmployees())
     .catch((err) => (`error: ${err}`));
 }
 
@@ -100,7 +99,7 @@ componentDidMount(){
   render(){
     return(
       <Container >
-        { this.state.companyTimesheets && this.state.companyEmployees ? 
+        { this.state.companyTimesheets && this.state.companyEmployees === [] ? 
         (
         <Container>
           <Typography variant="h5">Company Employees</Typography>
@@ -140,7 +139,7 @@ componentDidMount(){
             </Container>)
 
             :
-            <Typography>You do not have access to this page. Please contact an administrator.</Typography>
+            <Typography variant="h6">You do not have access to this page. Please contact an administrator.</Typography>
   }
       </Container>
     )

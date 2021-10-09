@@ -26,7 +26,8 @@ deleteTimesheet = async (timesheet: any) => {
             "Authorization": `Bearer ${this.props.sessionToken}`
         })
     })
-    .then((res) => this.props.fetchTimesheets())
+    .then(() => this.props.fetchTimesheets())
+    .catch((err) => (`error: ${err}`));
 }
 
   timesheetMapper = () => {
