@@ -89,7 +89,7 @@ class AdminView extends Component<AdminViewProps, AdminViewState> {
             <td><Button onClick={() => this.deleteEmployee(employee)}>Delete Employee</Button></td>
         </tr>
         );
-    })
+      })
   }
 
 componentDidMount(){
@@ -99,9 +99,7 @@ componentDidMount(){
   render(){
     return(
       <Container >
-        { this.state.companyTimesheets && this.state.companyEmployees === [] ? 
-        (
-        <Container>
+       {this.state.companyEmployees.length >= 1 ? <Container>
           <Typography variant="h5">Company Employees</Typography>
         <Divider />
           <Table>
@@ -136,15 +134,13 @@ componentDidMount(){
                     {this.allTimesheetsMapper()}
                 </tbody>
             </Table>
-            </Container>)
-
-            :
-            <Typography variant="h6">You do not have access to this page. Please contact an administrator.</Typography>
-  }
+            </Container>
+            : 
+            <Typography variant="h6">Administrator access required for this page.</Typography>
+            }
       </Container>
     )
   }
 }
-
 
 export default AdminView;
