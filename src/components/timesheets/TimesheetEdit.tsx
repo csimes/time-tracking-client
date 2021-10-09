@@ -47,7 +47,7 @@ timesheetUpdate = async (e: any) => {
     
     .then((res) => res.json())
     .then((res) => this.props.fetchTimesheets())
-    // .then((res) => this.props.updateOff())-
+    .then((res) => this.props.updateOff())
     .then((res) => console.log(res))
     .catch((err) => (`error: ${err}`));
       }
@@ -66,7 +66,7 @@ handleClose = () => {
     return (
 
     <Container className="timesheet" maxWidth="md">
-      <Dialog open={this.state.open} onClose={this.handleClose}>
+      <Dialog className="timesheet-edit" open={this.state.open} onClose={this.handleClose}>
                 <Box >
                   <Typography variant="h6">Edit Timesheet</Typography>
               <form onSubmit={(e) => this.timesheetUpdate(e)}>

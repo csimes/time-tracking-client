@@ -6,6 +6,7 @@ import EmployeeIndex from "../employee/EmployeeIndex";
 import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Auth from "../auth/Auth"
 import Home from "../home/Home"
+import AdminView from "../admin/AdminView"
 
 type NavigationProps = {
   clearToken: () => void,
@@ -89,6 +90,12 @@ this.props.fetchEmployeeId()
                           Logout
                       </Link>
                   </MenuItem>
+                  <MenuItem>                  
+                  <Button onClick={this.handleClose}>
+                    Admin
+                  <Link to="/companytimesheets" />
+                  </Button>
+                  </MenuItem>
                 </Menu>
               </div>
             )
@@ -116,6 +123,9 @@ this.props.fetchEmployeeId()
               <Route exact path="/employee/timesheet"> 
                 <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
               </Route>
+                <Route exact path="/companytimesheets">
+                  <AdminView sessionToken={this.props.sessionToken}/>
+                </Route>
             </Switch>
         </div>
       </div>

@@ -1,3 +1,10 @@
+html {
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
 .App {
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   text-align: center;
@@ -54,10 +61,10 @@ Button.profilebutton {
 
 h1.title {
   font-size: 3rem;
-  color: #444054;
+  color: #E1F2FE;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%
 }
 
 Container.timesheet {
@@ -79,3 +86,16 @@ button.MuiButtonBase-root  {
 button.MuiButtonBase-root:hover{
   color: #444054;
 }
+
+
+video#background-video {
+  object-fit: fill;
+  max-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* Dialog.timesheet-edit {
+
+} */

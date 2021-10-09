@@ -11,25 +11,16 @@ updateOn : () => void
 editTimesheet : (timesheet: any) => void
 }
 
-type TimesheetTableState = {
-  hours: number | 0,
-  timeType: string,
-  date: string,  
-}
-
-class TimesheetTable extends Component<TimesheetTableProps, TimesheetTableState> {
+class TimesheetTable extends Component<TimesheetTableProps, {}>{
   constructor(props: TimesheetTableProps) {
     super(props)
     this.state = {
-      hours: 0,
-      timeType: "",
-      date: "",
+      open: true
       }
-      console.log(this.props.results)
   }
 
 deleteTimesheet = async (timesheet: any) => {
-    await fetch(`http://localhost:3000/remove/${timesheet.id}`, {
+    await fetch(`${APIURL}/remove/${timesheet.id}`, {
         method: "DELETE",
         headers: new Headers ({
             "Content-Type": "application/json",
