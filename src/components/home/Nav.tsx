@@ -92,7 +92,7 @@ this.props.fetchEmployeeId()
                   </MenuItem>
                   <MenuItem>                  
                   <Button >
-                  <Link to="/companytimesheets">Admin</Link>
+                  <Link to="/admin">Admin</Link>
                   </Button>
                   </MenuItem>
                 </Menu>
@@ -122,7 +122,7 @@ this.props.fetchEmployeeId()
               <Route exact path="/employee/timesheet"> 
                 <TimesheetIndex employeeId={this.props.employeeId} sessionToken={this.props.sessionToken}/>
               </Route>
-                <Route exact path="/companytimesheets">
+                <Route exact path="/admin">
                   <AdminView sessionToken={this.props.sessionToken}/>
                 </Route>
             </Switch>

@@ -3,11 +3,11 @@ import APIURL from "../../helpers/environment";
 import { Button, Table, Divider } from "@mui/material";
 
 type TimesheetTableProps = {
-sessionToken: string | null
-employeeId: number | null
-results: []
-fetchTimesheets : () => void
-updateOn : () => void
+sessionToken: string | null,
+employeeId: number | null,
+results: [],
+fetchTimesheets : () => void,
+updateOn : () => void,
 editTimesheet : (timesheet: any) => void
 }
 

@@ -46,7 +46,6 @@ class TimesheetCreate extends Component<TimesheetCreateProps, TimesheetCreateSta
     .then(this.props.fetchTimesheets)
     .catch((err) => (`error: ${err}`));
   }
-
   render() { 
     return (
         <Container className="" maxWidth="xs">
