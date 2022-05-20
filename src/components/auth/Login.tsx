@@ -30,7 +30,7 @@ class Login extends Component<LoginProps, LoginState> {
   handleSubmit = async (e: any) => {
     const { email, password } = this.state;
     e.preventDefault();
-    await fetch(`${APIURL}/login`, {
+    await fetch(`${APIURL}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
