@@ -103,11 +103,16 @@ button.MuiButtonBase-root:hover {
 }
 
 h1.title {
-  font-size: 3rem;
+  font-size: 6vw;
   color: #e1f2fe;
+  text-shadow: 5px 5px 10px #444054;
   width: 100%;
-  text-align: center;
+  position: absolute;
+  top: 40%;
+  z-index: 1;
 }
+
 .background-video {
+  position: fixed;
   width: 100%;
 }

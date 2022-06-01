@@ -8,7 +8,7 @@ class Home extends Component<{}, {}> {
         <div>
           <h1 className="title">Welcome to Digital Office </h1>
         </div>
-        <video className="background-video" loop autoPlay>
+        <video className="background-video" autoPlay loop>
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
