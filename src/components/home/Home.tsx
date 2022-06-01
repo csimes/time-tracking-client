@@ -1,32 +1,19 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import video from "../../assets/office.mp4";
 
-
-type HomeState = {
-  videoURL: string
-}
-
-class Home extends Component<{}, HomeState> {
-  constructor(props: any) {
-    super(props)
-      this.state = { 
-        videoURL: "https://storage.coverr.co/videos/WsylkSzVz02eS3Y5bg54CNAJZclj3vhUk?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjMzNjQyOTQ3fQ.gA7MIINONIBpapit9yKHkK_h3jdL7lxCI4gCSwYn5m0"
-      }
-
-  }
-
-  render() { 
+class Home extends Component<{}, {}> {
+  render() {
     return (
       <div className="home">
-        <div >
+        <div>
           <h1 className="title">Welcome to Digital Office </h1>
         </div>
-            <video id="background-video" loop autoPlay>
-                <source src={this.state.videoURL} type="video/mp4" />
-                <source src={this.state.videoURL} type="video/ogg" />
-                Your browser does not support the video tag.
-            </video>
+        <video className="background-video" loop autoPlay>
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
-      );
+    );
   }
 }
 
