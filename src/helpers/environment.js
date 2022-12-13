@@ -5,7 +5,7 @@ switch (window.location.hostname) {
     APIURL = "http://localhost:3000";
     break;
   case "time-tracking-client.onrender.com":
-    APIURL = "https://time-tracking-web-service.onrender.com/";
+    APIURL = "https://time-tracking-web-service.onrender.com";
     break;
   default:
     console.log("Unable to connect");
