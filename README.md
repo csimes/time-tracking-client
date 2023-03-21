@@ -1,4 +1,4 @@
-# Digital Office 
+# Digital Office
 
 Digital Office is currently in version 1.0.
 
@@ -13,18 +13,17 @@ would be available to registered users as well.
 
 The server side of this project used the following dependencies:
 
-| Package       | Version  |
-| ------------- | ---------|
-| bcryptjs      | 2.4.3    |
-| cors          | 2.8.5    |
-| dotenv        | 10.0.0   |
-| express       | 4.17.1   |
-| jsonwebtoken  | 8.5.1    |
-| pg            | 8.7.1    |
-| pg-hstore     | 2.3.4    |
-| sequelize     | 6.6.5    |
-
+| Package      | Version |
+| ------------ | ------- |
+| bcryptjs     | 2.4.3   |
+| cors         | 2.8.5   |
+| dotenv       | 10.0.0  |
+| express      | 4.17.1  |
+| jsonwebtoken | 8.5.1   |
+| pg           | 8.7.1   |
+| pg-hstore    | 2.3.4   |
+| sequelize    | 6.6.5   |
 
 The server side of the project can be found here: https://github.com/csimes/time-tracking-sever
 
-The deployed version of the project can be found here: https://cs-timetrackerclient.herokuapp.com/
+The deployed version of the project can be found here: https://time-tracking-client.onrender.com/
