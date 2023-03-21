@@ -5,7 +5,7 @@ switch (window.location.hostname) {
     APIURL = "http://localhost:3000";
     break;
   case "time-tracking-client.onrender.com":
-    APIURL = "https://gmgwwnkxeajwmmeqtsuk.supabase.co";
+    APIURL = "https://gmgwwnkxeajwmmeqtsuk.supabase.co/rest/v1";
     break;
   default:
     console.log("Unable to connect");
