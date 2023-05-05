@@ -24,6 +24,6 @@ The server side of this project used the following dependencies:
 | pg-hstore    | 2.3.4   |
 | sequelize    | 6.6.5   |
 
-The server side of the project can be found here: https://github.com/csimes/time-tracking-sever
+The server side of the project can be found here: https://github.com/csimes/time-tracking-server
 
 The deployed version of the project can be found here: https://time-tracking-client.onrender.com/
