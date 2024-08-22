@@ -131,28 +131,37 @@ class Navigation extends Component<NavigationProps, NavigationState> {
         </div>
         <div>
           <Routes>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/login">
-              <Auth updateToken={this.props.updateToken} />
-            </Route>
-            <Route path="/employee/profile">
-              <EmployeeIndex
-                fetchEmployeeId={this.props.fetchEmployeeId}
-                sessionToken={this.props.sessionToken}
-                employeeId={this.props.employeeId}
-              />
-            </Route>
-            <Route path="/employee/timesheet">
-              <TimesheetIndex
-                employeeId={this.props.employeeId}
-                sessionToken={this.props.sessionToken}
-              />
-            </Route>
-            <Route path="/admin">
-              <AdminView sessionToken={this.props.sessionToken} />
-            </Route>
+            <Route
+              path="/"
+              element={<Home />}
+            ></Route>
+            <Route
+              path="/login"
+              element={<Auth updateToken={this.props.updateToken} />}
+            ></Route>
+            <Route
+              path="/employee/profile"
+              element={
+                <EmployeeIndex
+                  fetchEmployeeId={this.props.fetchEmployeeId}
+                  sessionToken={this.props.sessionToken}
+                  employeeId={this.props.employeeId}
+                />
+              }
+            ></Route>
+            <Route
+              path="/employee/timesheet"
+              element={
+                <TimesheetIndex
+                  employeeId={this.props.employeeId}
+                  sessionToken={this.props.sessionToken}
+                />
+              }
+            ></Route>
+            <Route
+              path="/admin"
+              element={<AdminView sessionToken={this.props.sessionToken} />}
+            ></Route>
           </Routes>
         </div>
       </div>
