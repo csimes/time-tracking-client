@@ -15,6 +15,7 @@ import TimesheetIndex from "../timesheets/TimesheetIndex";
 import Auth from "../auth/Auth";
 import Home from "../home/Home";
 import AdminView from "../admin/AdminView";
+import CompanyCreate from "../company/CompanyCreate";
 
 type NavigationProps = {
   clearToken: () => void;
@@ -157,6 +158,10 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                   sessionToken={this.props.sessionToken}
                 />
               }
+            ></Route>
+            <Route
+              path="/company/create"
+              element={<CompanyCreate sessionToken={this.props.sessionToken} />}
             ></Route>
             <Route
               path="/admin"
