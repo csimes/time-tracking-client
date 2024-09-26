@@ -6,7 +6,7 @@ class Home extends Component<{}, {}> {
     return (
       <div className="home">
         <div>
-          <h1 className="title">Welcome to Digital Office </h1>
+          <h1 className="title">Welcome to WorkWise 1.0</h1>
         </div>
         <video
           className="background-video"
