@@ -6,7 +6,7 @@ switch (window.location.hostname) {
     APIURL = "http://localhost:3000";
     break;
   case "time-tracking-client.onrender.com":
-    APIURL = "https://mybupjifnhcjndxdpuol.supabase.co";
+    APIURL = "https://time-tracking-web-service.onrender.com";
     break;
   default:
     console.error("Unable to determine API URL");

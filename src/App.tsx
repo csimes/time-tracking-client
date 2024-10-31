@@ -41,7 +41,7 @@ class App extends Component<{}, AppState> {
   };
 
   componentDidMount() {
-    if (localStorage.getItem("token")) {
+    if (sessionStorage.getItem("token")) {
       this.setState({ sessionToken: sessionStorage.getItem("token") });
       console.log(this.state.sessionToken);
     }
