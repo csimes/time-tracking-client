@@ -14,7 +14,9 @@ type EmployeeCreateState = {
   title: string | null,
   hireDate: string,
   companyId: string | null,
-  employeeId: number | null
+  employeeId: number | null,
+  error: boolean,
+  message: string | null
 } 
 
 class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState> {
@@ -28,7 +30,9 @@ class EmployeeCreate extends Component<EmployeeCreateProps, EmployeeCreateState>
         title: "",
         hireDate: "",
         companyId: "",
-        employeeId: null
+        employeeId: null,
+        error: false,
+        message: ""
       }
   }
 
