@@ -35,8 +35,8 @@ class Register extends Component<RegisterProps, RegisterState> {
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("Starting registration...")
     const { email, password, isAdmin } = this.state;
+    console.log("Attempting registration...");
 
     await fetch(`${APIURL}/user/register`, {
       method: "POST",
@@ -51,10 +51,10 @@ class Register extends Component<RegisterProps, RegisterState> {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Registration response:", data)
+        console.log("Registration response:", data);
         this.props.updateToken(data.sessionToken);
       })
-      .catch((err) => `error: ${err}`);
+      .catch((err) => console.log("Registration error:", err));
   };
 
   handleChange = (e: any) => {
@@ -63,9 +63,15 @@ class Register extends Component<RegisterProps, RegisterState> {
 
   render() {
     return (
-      <Container className="auth" maxWidth="xs">
+      <Container
+        className="auth"
+        maxWidth="xs"
+      >
         <CssBaseline />
-        <Typography component="h1" variant="h5">
+        <Typography
+          component="h1"
+          variant="h5"
+        >
           Register
         </Typography>
         <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -105,7 +111,12 @@ class Register extends Component<RegisterProps, RegisterState> {
             <FormLabel htmlFor="Admin">Admin User:</FormLabel>
             <Checkbox onChange={(e) => this.handleChange(e)} />
           </FormGroup>
-          <Button fullWidth type="submit" variant="contained" color="primary">
+          <Button
+            fullWidth
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Register
           </Button>
         </form>

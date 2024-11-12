@@ -51,7 +51,8 @@ class EmployeeCreate extends Component<
 
   createEmployee = async (e: any) => {
     e.preventDefault();
-    console.log("Session Token:", this.props.sessionToken);
+    console.log("Creating employee with token:", this.props.sessionToken);
+    console.log("Stored token:", sessionStorage.getItem("token"))
     const {
       firstName,
       lastName,
