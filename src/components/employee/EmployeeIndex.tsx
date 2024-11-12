@@ -14,13 +14,6 @@ class EmployeeIndex extends Component<EmployeeIndexProps, {}> {
     this.state = {};
   }
 
-  componentDidMount() {
-    if (this.props.sessionToken) {
-      //Check props instead of state
-      this.props.fetchEmployeeId();
-    }
-  }
-
   render() {
     return (
       <div>
