@@ -23,35 +23,36 @@ class App extends Component<{}, AppState> {
   }
 
   fetchEmployeeId = async () => {
-    await fetch(`${APIURL}/employee/`, {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${this.state.sessionToken}`,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) =>
-        this.setState({
-          employeeId: res.employeeProfile.id,
-        })
-      )
-      .then((res) => console.log(res))
-      .catch((err) => `error: ${err}`);
+    if (this.state.sessionToken) {
+      await fetch(`${APIURL}/employee/`, {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.state.sessionToken}`,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) =>
+          this.setState({
+            employeeId: res.employeeProfile.id,
+          })
+        )
+        .then((res) => console.log(res))
+        .catch((err) => `error: ${err}`);
+    }
   };
 
   componentDidMount() {
     if (sessionStorage.getItem("token")) {
       this.setState({ sessionToken: sessionStorage.getItem("token") });
-      console.log(this.state.sessionToken);
     }
     this.fetchEmployeeId();
   }
 
   updateToken = (newToken: string) => {
+    console.log("Updating token:", newToken);
     sessionStorage.setItem("token", newToken);
     this.setState({ sessionToken: newToken });
-    console.log(this.state.sessionToken);
   };
 
   clearToken() {

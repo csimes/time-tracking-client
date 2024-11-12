@@ -35,6 +35,7 @@ class Register extends Component<RegisterProps, RegisterState> {
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
+    console.log("Starting registration...")
     const { email, password, isAdmin } = this.state;
 
     await fetch(`${APIURL}/user/register`, {
@@ -50,6 +51,7 @@ class Register extends Component<RegisterProps, RegisterState> {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("Registration response:", data)
         this.props.updateToken(data.sessionToken);
       })
       .catch((err) => `error: ${err}`);
